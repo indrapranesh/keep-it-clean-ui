@@ -1,9 +1,13 @@
+export const BASE_URL = 'http://localhost:3000/dev/api'
+
 export const APIURL = {
-    LOGIN: 'api/login',
-    REFRESH_SESSION: 'api/refreshSession',
-    CHANGE_PASSWORD: 'api/password/change',
-    FORGOT_PASSWORD: 'api/password/forget',
-    RESET_PASSWORD: 'api/password/reset'
+    LOGIN: '/login',
+    SIGNUP: '/signup',
+    VERIFY_USER: '/user/verify',
+    REFRESH_SESSION: '/refreshSession',
+    CHANGE_PASSWORD: '/password/change',
+    FORGOT_PASSWORD: '/password/forget',
+    RESET_PASSWORD: '/password/reset'
 }
 
 export const ROUTERURL = {

@@ -1,0 +1,24 @@
+
+@import '../../../assets/styles/variables';
+@import '~@progress/kendo-theme-default/scss/appbar/_index.scss'; 
+@import '~@progress/kendo-theme-default/scss/menu/_index.scss'; 
+@import '~@progress/kendo-theme-default/scss/button/_index.scss';
+
+.ev-header {
+    .ev-appbar {
+        height: 60px;
+        kendo-menu {
+            .k-menu {
+                .k-menu-item {
+                    border-bottom: 3px solid transparent;
+                }
+                .k-menu-item:hover {
+                    border-bottom: 3px solid $primary-color;
+                }
+                .k-menu-item:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

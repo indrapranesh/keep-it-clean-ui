@@ -1,0 +1,17 @@
+<div class="ev-login p-5 w-100">
+    <div class="d-flex flex-column justify-center align-center">
+        <p class="m-0">Verify Email</p>
+        <form class="k-form" [formGroup]="verifyForm">
+            <fieldset class="k-form-fieldset">
+                <kendo-formfield>
+                    <kendo-label [for]="code" text="Code"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="code" #code required></kendo-textbox>
+                </kendo-formfield>
+
+                <div class="k-form-buttons">
+                    <button class="k-button k-primary" (click)="verify()">Verify</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

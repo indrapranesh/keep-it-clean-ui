@@ -3,6 +3,20 @@ export interface ILoginReq {
     password: string;
 }
 
+export interface ISignUpReq {
+    firstName: string;
+    lastName: string;
+    userName: string;
+    email: string;
+    phoneNumber: string;
+    password: string;
+}
+
+export interface IVerifyReq {
+    cognitoUserName: string;
+    code: number;
+}
+
 export interface Session {
     refreshToken: string;
     accessToken: string;

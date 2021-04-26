@@ -1,0 +1,26 @@
+<div class="ev-login p-5 w-100">
+    <div class="d-flex flex-column justify-center align-center">
+        <p class="m-0">Welcome to EcoVille</p>
+        <form class="k-form" [formGroup]="loginForm">
+            <fieldset class="k-form-fieldset">
+                <kendo-formfield>
+                    <kendo-label [for]="email" text="Email"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="email" #email required></kendo-textbox>
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="password" text="Password"> </kendo-label>
+                    <kendo-textbox class="w-100" formControlName="password" #password required [clearButton]="true">
+                        <ng-template kendoTextBoxSuffixTemplate>
+                            <button kendoButton look="clear" icon="eye" (click)="toggleVisibility()"></button>
+                        </ng-template>
+                    </kendo-textbox>
+                </kendo-formfield>
+
+                <div class="k-form-buttons">
+                    <button class="k-button k-primary" (click)="login()">Login</button>
+                </div>
+            </fieldset>
+        </form>
+        <p>Don't have an account ? </p><a href="account/signup">Signup now</a>
+    </div>
+</div>

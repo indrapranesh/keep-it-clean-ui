@@ -1,0 +1,46 @@
+<div class="ev-login p-5 w-100">
+    <div class="d-flex flex-column justify-center align-center">
+        <p class="m-0">Signup</p>
+        <form class="k-form" [formGroup]="signupForm">
+            <fieldset class="k-form-fieldset">
+                <div class="wrap">
+                    <kendo-formfield>
+                        <kendo-label [for]="firstName" text="First Name"></kendo-label>
+                        <kendo-textbox class="w-100" formControlName="firstName" #firstName required></kendo-textbox>
+                    </kendo-formfield>
+                    <kendo-formfield>
+                        <kendo-label [for]="lastName" text="Last Name"></kendo-label>
+                        <kendo-textbox class="w-100" formControlName="lastName" #lastName required></kendo-textbox>
+                    </kendo-formfield>
+                </div>
+                <kendo-formfield>
+                    <kendo-label [for]="userName" text="User Name"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="userName" #userName required></kendo-textbox>
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="email" text="Email"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="email" #email required></kendo-textbox>
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="phoneNumber" text="Phone Number"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="phoneNumber" #phoneNumber required></kendo-textbox>
+                </kendo-formfield>
+                <kendo-formfield>
+                    <kendo-label [for]="password" text="Password"> </kendo-label>
+                    <kendo-textbox class="w-100" formControlName="password" #password required [clearButton]="true">
+                        <ng-template kendoTextBoxSuffixTemplate>
+                            <button kendoButton look="clear" icon="eye" (click)="toggleVisibility()"></button>
+                        </ng-template>
+                    </kendo-textbox>
+                </kendo-formfield>
+
+                <div class="k-form-buttons">
+                    <button class="k-button k-primary" (click)="signup()">Signup</button>
+                </div>
+            </fieldset>
+        </form>
+        <p>Already have an account? 
+            <span><a href="account/login">Login</a></span>
+        </p>
+    </div>
+</div>
