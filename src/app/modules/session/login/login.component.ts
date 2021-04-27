@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ILoginReq } from 'src/app/interfaces/session.interface';
 import { SessionService } from 'src/app/services/session.service';
 import { TextBoxComponent } from '@progress/kendo-angular-inputs';
+import { NotificationService } from '@progress/kendo-angular-notification';
+import { setTokenToLocalStorage } from 'src/app/utils/token.utils';
+import { Router } from '@angular/router';
+import { ROUTERURL } from 'src/app/constants/url.constants';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +20,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('password') public textbox: TextBoxComponent;
 
   constructor(private formBuilder: FormBuilder,
-    private sessionService: SessionService) { 
+    private sessionService: SessionService,
+    private notificationService: NotificationService,
+    private router: Router) { 
     this.loginForm = this.formBuilder.group({
       email: ['',[Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
@@ -30,11 +36,17 @@ export class LoginComponent implements OnInit, AfterViewInit {
         password: this.loginForm.get('password').value,
       }
       this.sessionService.login(body).subscribe(
-        (res) => {
-          console.log(res);
+        (res: any) => {
+          setTokenToLocalStorage(res.data.session);
+          this.router.navigate([ROUTERURL.LANDING]);
         },
         (err) => {
           console.log(err);
+          this.notificationService.show({
+            content: err.error.errorMessage,
+            animation: { type: 'fade', duration: 300 },
+            position: { horizontal: 'center', vertical: 'bottom' },
+          })
         }
       )
     }

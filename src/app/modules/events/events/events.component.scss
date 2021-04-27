@@ -1,0 +1,22 @@
+@import '../../../../assets/styles/variables';
+
+.ev-events {
+    min-height: 100vh;
+    .hero-wrapper {
+        background: $bg-blue;
+        height: 150px;
+        .header {
+            color: $text-main;
+        }
+    }
+    .events {
+        .events-search {
+            .search-wrapper {
+                width: 300px;
+                .search-input {
+                    background: $bg-blue;
+                }
+            }
+        }
+    }
+}

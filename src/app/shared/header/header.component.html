@@ -1,7 +1,7 @@
 <div class="ev-header">
-    <kendo-appbar class="ev-appbar">
+    <kendo-appbar class="ev-appbar container">
         <kendo-appbar-section>
-            <p class="title m-0">EcoVille</p>
+            <img class="logo" src="assets/icons/ev-logo.svg" />
         </kendo-appbar-section>
         <kendo-appbar-spacer></kendo-appbar-spacer>
         <kendo-appbar-section>
@@ -12,7 +12,7 @@
                     </a>
                 </ng-template>
             </kendo-menu>
-            <button kendoButton icon="lock" [primary]="true" routerLink="/account">Login</button>
+            <button kendoButton [primary]="true" routerLink="/account">Login</button>
         </kendo-appbar-section>
     </kendo-appbar>
 </div>

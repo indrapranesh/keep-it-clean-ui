@@ -6,6 +6,7 @@ import { MenuModule } from '@progress/kendo-angular-menu';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { RouterModule } from '@angular/router';
+import { NotificationModule } from '@progress/kendo-angular-notification';
 
 
 
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
     NavigationModule,
     LayoutModule,
     ButtonsModule,
-    RouterModule
+    RouterModule,
+    NotificationModule
   ],
   exports: [
     HeaderComponent

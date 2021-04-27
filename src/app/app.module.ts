@@ -10,6 +10,10 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { HttpClientModule } from '@angular/common/http';
+import { NotificationModule } from '@progress/kendo-angular-notification';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+
+
 
 
 
@@ -27,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     ButtonsModule,
     InputsModule,
     LabelModule,
-    HttpClientModule
+    HttpClientModule,
+    NotificationModule,
+    DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

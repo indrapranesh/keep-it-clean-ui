@@ -11,5 +11,11 @@ export const APIURL = {
 }
 
 export const ROUTERURL = {
-    LOGIN: '/login'
+    LOGIN: 'account/login',
+    SIGNUP: 'account/signup',
+    LANDING: '',
+    LAWS: 'laws',
+    EVENTS: 'events',
+    RECYCLING: 'recycling',
+    CARBON: 'carbondating'
 }
