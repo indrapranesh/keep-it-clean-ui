@@ -12,6 +12,12 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { HttpClientModule } from '@angular/common/http';
 import { NotificationModule } from '@progress/kendo-angular-notification';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { PlacePredictionService } from './services/place-prediction.service';
+import { AgmCoreModule } from '@agm/core';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+
+
 
 
 
@@ -33,9 +39,17 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
     LabelModule,
     HttpClientModule,
     NotificationModule,
-    DialogsModule
+    DialogsModule,
+    DropDownsModule,
+    AgmCoreModule.forRoot({
+      libraries: ['places'],
+      apiKey: 'AIzaSyB5mVZs-PAwUyj9ueH7UMh6U3tK2XtrSo0'
+    }),
+    DateInputsModule,
   ],
-  providers: [],
+  providers: [
+    PlacePredictionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

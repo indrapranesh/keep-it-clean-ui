@@ -7,7 +7,9 @@ export const APIURL = {
     REFRESH_SESSION: '/refreshSession',
     CHANGE_PASSWORD: '/password/change',
     FORGOT_PASSWORD: '/password/forget',
-    RESET_PASSWORD: '/password/reset'
+    RESET_PASSWORD: '/password/reset',
+    GET_EVENT_TYPES: '/event/types',
+    CREATE_EVENT: '/event'
 }
 
 export const ROUTERURL = {
