@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.sessionService.login(body).subscribe(
         (res: any) => {
           setTokenToLocalStorage(res.data.session);
+          this.sessionService.isAuthenticated.next(true);
           this.router.navigate([ROUTERURL.LANDING]);
         },
         (err) => {

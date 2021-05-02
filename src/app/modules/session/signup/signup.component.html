@@ -35,7 +35,9 @@
                 </kendo-formfield>
 
                 <div class="k-form-buttons">
-                    <button class="k-button k-primary" (click)="signup()">Signup</button>
+                    <button class="k-button k-primary" (click)="signup()">
+                        <kendo-loader *ngIf="isLoading" [size]="'small'"></kendo-loader>
+                        Signup</button>
                 </div>
             </fieldset>
         </form>

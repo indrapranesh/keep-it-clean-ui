@@ -15,6 +15,20 @@
 @import '~@progress/kendo-theme-default/scss/dropdownlist/_index.scss';
 @import '~@progress/kendo-theme-default/scss/autocomplete/_index.scss';
 @import '~@progress/kendo-theme-default/scss/datetime/_index.scss';
+@import '~@progress/kendo-theme-default/scss/card/_index.scss'; 
+@import '~@progress/kendo-theme-default/scss/treeview/_index.scss'; 
+@import '~@progress/kendo-theme-default/scss/avatar/_index.scss'; 
+
 body {
     margin: 0;
+}
+
+.facebook-icon {
+    color: #4267B2;
+    font-size: 28px;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+    font-size: 28px;
 }

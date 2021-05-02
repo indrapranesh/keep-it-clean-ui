@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { DialogService } from '@progress/kendo-angular-dialog';
-import { ROUTERURL } from 'src/app/constants/url.constants';
 import { EventService } from 'src/app/services/event.service';
 import { CreateEventComponent } from '../create-event/create-event.component';
 
@@ -11,6 +9,8 @@ import { CreateEventComponent } from '../create-event/create-event.component';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+
+  events = [];
 
   constructor(private dialogService: DialogService,
     private eventService: EventService) { }
@@ -25,6 +25,10 @@ export class EventsComponent implements OnInit {
 
   init() {
     this.eventService.getEventTypes();
+    this.eventService.getEvents();
+    this.eventService.getEventsObservable().subscribe((res) => {
+      this.events = res;
+    })
   }
 
   ngOnInit(): void {

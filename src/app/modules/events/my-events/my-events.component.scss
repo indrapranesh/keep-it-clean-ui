@@ -1,6 +1,6 @@
 @import '../../../../assets/styles/variables';
 
-.ev-events {
+.ev-my-events {
     min-height: calc(100vh - 60px);
     .hero-wrapper {
         background: $bg-blue;
@@ -9,13 +9,10 @@
             color: $text-main;
         }
     }
-    .events {
-        .events-search {
-            .search-wrapper {
-                width: 300px;
-                .search-input {
-                    background: $bg-blue;
-                }
+    .container {
+        kendo-buttongroup {
+            button:focus {
+                box-shadow: none;
             }
         }
     }

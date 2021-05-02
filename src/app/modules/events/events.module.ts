@@ -17,10 +17,13 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { AgmCoreModule } from '@agm/core';
 import { IntlModule } from '@progress/kendo-angular-intl';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { EventDetailsComponent } from './event-details/event-details.component';
+import { MyEventsComponent } from './my-events/my-events.component';
 
 
 @NgModule({
-  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent ],
+  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent, EventDetailsComponent, MyEventsComponent ],
   imports: [
     CommonModule,
     EventsRoutingModule,
@@ -37,7 +40,8 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
     DropDownsModule,
     AgmCoreModule,
     DateInputsModule,
-    IntlModule
+    IntlModule,
+    TreeViewModule
   ],
   providers: [
   ]

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logut/logout.component';
 import { SessionComponent } from './session/session.component';
 import { SignupComponent } from './signup/signup.component';
 import { VerifyComponent } from './verify/verify.component';
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'verify',
         component: VerifyComponent
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       }
     ]
   }

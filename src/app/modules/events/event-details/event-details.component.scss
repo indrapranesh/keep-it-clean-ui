@@ -1,0 +1,29 @@
+@import '../../../../assets/styles/variables';
+
+.ev-event-details {
+    min-height: calc(100vh - 60px);
+    .hero-wrapper {
+        background: $bg-blue;
+        height: 150px;
+        .header {
+            color: $text-main;
+        }
+    }
+    .details-wrapper {
+        .join-btn {
+            min-width: 100px;
+            height: 35px;
+        }
+        .map {
+            height: 300px;
+            width: 100%;
+        }
+        .phone-icon {
+            height: 16px;
+        }
+
+        .share-icon:hover {
+            text-decoration: none;
+        }
+    }
+}

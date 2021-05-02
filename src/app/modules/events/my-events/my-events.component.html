@@ -1,0 +1,16 @@
+<div class="ev-my-events">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl font-bold">
+                My events
+        </p>
+    </div>
+    <div class="container pt-50">
+        <kendo-buttongroup selection="single">
+            <button kendoButton class="k-state-selected" [toggleable]="true" (click)="navigate(type.joined)">Joined Events</button>
+            <button kendoButton [toggleable]="true" (click)="navigate(type.hosted)">Hosted Events</button>
+        </kendo-buttongroup>
+        <div class="events-list pt-50">
+            <app-event-list [events]="events"></app-event-list>
+        </div>
+    </div>
+</div>

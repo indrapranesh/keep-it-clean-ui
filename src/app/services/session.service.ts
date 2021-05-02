@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { APIURL, BASE_URL, ROUTERURL } from '../constants/url.constants';
 import { ILoginReq, ISignUpReq, IVerifyReq } from '../interfaces/session.interface';
 import { clearTokens } from '../utils/token.utils';
@@ -9,6 +10,8 @@ import { clearTokens } from '../utils/token.utils';
   providedIn: 'root'
 })
 export class SessionService {
+
+  isAuthenticated = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
 

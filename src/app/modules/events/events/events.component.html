@@ -5,24 +5,25 @@
         </p>
         <button class="k-button k-primary" (click)="host()">Host an Event</button>
     </div>
-    <div class="events pt-50 container">
-        <div class="events-search d-flex justify-right">
-            <div class="search-wrapper">
-                <kendo-textbox class="w-100 search-input"
-                    placeholder="Search Events"  required>
-                    <ng-template kendoTextBoxPrefixTemplate>
-                        <button kendoButton look="clear" [icon]="'zoom'"></button>
-                    </ng-template>
-                </kendo-textbox>
-            </div>
-        </div>
+    <div class="events container">
         <div class="event-list pt-50">
             <div class="row">
                 <div class="col-lg-3 filter-wrapper">
                     <app-event-filter></app-event-filter>
                 </div>
                 <div class="col-lg-9 event-list-wrapper">
-
+                    <div class="events-search d-flex justify-between pb-50">
+                        <p class="m-0">{{events?.length}} events</p>
+                        <div class="search-wrapper">
+                            <kendo-textbox class="w-100 search-input"
+                                placeholder="Search Events"  required>
+                                <ng-template kendoTextBoxPrefixTemplate>
+                                    <button kendoButton look="clear" [icon]="'zoom'"></button>
+                                </ng-template>
+                            </kendo-textbox>
+                        </div>
+                    </div>
+                    <app-event-list [events]="events"></app-event-list>
                 </div>
             </div>
         </div>

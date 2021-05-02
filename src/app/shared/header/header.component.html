@@ -12,7 +12,10 @@
                     </a>
                 </ng-template>
             </kendo-menu>
-            <button kendoButton [primary]="true" routerLink="/account">Login</button>
+            <button kendoButton [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
+            <kendo-dropdownbutton [data]="profileNav" class="profile-dropdown" (itemClick)="profileNavigate($event)" *ngIf="isAuthenticated">  
+                <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer" *ngIf="isAuthenticated"></kendo-avatar>
+            </kendo-dropdownbutton>
         </kendo-appbar-section>
     </kendo-appbar>
 </div>

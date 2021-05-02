@@ -4,6 +4,8 @@ $primary-color: #ff7c6c;
 $secondary-color: #47bce4;
 $text-main: #2A2642;
 $bg-blue: #f4f9ff;
+$grey-text: #424242;
+$light-border: #edf1f2;
 
 // theme
 $light: #ffffff;
@@ -45,3 +47,10 @@ $stepper-progressbar-fill-bg: $secondary-color;
 // $dropdownlist-bg: $primary-color;
 // $dropdownlist-border: $primary-color;
 // $dropdownlist-gradient: $primary-color;
+
+// button group
+
+$button-selected-text: $white-color;
+$button-selected-bg: $primary-color;
+$button-selected-border: $primary-color;
+$button-selected-gradient: $primary-color;

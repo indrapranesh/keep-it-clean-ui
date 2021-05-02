@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
 
   @ViewChild('password') public textbox: TextBoxComponent;
   signupForm: FormGroup;
+  isLoading: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private sessionService: SessionService,
@@ -32,6 +33,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
     if(this.signupForm.valid) {
+      this.isLoading = true;
       let body: ISignUpReq = {
         firstName: this.signupForm.get('firstName').value,
         lastName: this.signupForm.get('lastName').value,
@@ -48,14 +50,16 @@ export class SignupComponent implements OnInit {
           this.notificationService.show({content: 'Verification Code has been sent.',
             animation: { type: 'fade', duration: 800 },
             position: { horizontal: 'center', vertical: 'bottom' }
-          })
+          });
+          this.isLoading = false;
         },
         (err) => {
           console.log('something went wrong');
           this.notificationService.show({content: err.error.errorMessage,
             animation: { type: 'fade', duration: 800 },
             position: { horizontal: 'center', vertical: 'bottom' }
-          })
+          });
+          this.isLoading = false;
         }
       )
     }

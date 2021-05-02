@@ -2,7 +2,12 @@
 @import '../../../assets/styles/variables';
 
 .ev-header {
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 16%);
+    .ev-appbar:focus {
+        box-shadow: none;
+    }
     .ev-appbar {
+        box-shadow: none;
         height: 60px;
         .logo {
             height: 20px;
@@ -21,6 +26,13 @@
                 .k-menu-item:focus {
                     box-shadow: none;
                 }
+            }
+        }
+        .profile-dropdown {
+            button {
+                background: transparent;
+                padding: 0;
+                border: 0;
             }
         }
     }

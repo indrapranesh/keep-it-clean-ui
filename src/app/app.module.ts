@@ -16,6 +16,10 @@ import { PlacePredictionService } from './services/place-prediction.service';
 import { AgmCoreModule } from '@agm/core';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+
+
 
 
 
@@ -46,6 +50,8 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
       apiKey: 'AIzaSyB5mVZs-PAwUyj9ueH7UMh6U3tK2XtrSo0'
     }),
     DateInputsModule,
+    TreeViewModule,
+    IndicatorsModule,
   ],
   providers: [
     PlacePredictionService

@@ -23,7 +23,8 @@ export class CreateEventComponent {
     eventDetails: new FormGroup({
       name: new FormControl('', [Validators.required,Validators.minLength(2), Validators.maxLength(30), Validators.pattern(REGEX_CONSTANTS.ALPHA)]),
       eventType: new FormControl(this.eventService.eventTypes[0], [Validators.required]),
-      description: new FormControl('', [Validators.required, Validators.minLength(50), Validators.maxLength(200)])
+      phoneNumber: new FormControl(null, [Validators.required, Validators.pattern(REGEX_CONSTANTS.PHONE_NUMBER_WITH_COUTRY_CODE)]),
+      description: new FormControl('', [Validators.required, Validators.minLength(50), Validators.maxLength(200)]),
     }),
     location: new FormGroup({
       address: new FormControl('', [Validators.required]),
@@ -41,6 +42,7 @@ export class CreateEventComponent {
   predictions = [];
   public address: string = '';
   markerPresent = false;
+  isLoading = false;
 
   //map
   latitude: number = 31.9686;
@@ -189,11 +191,16 @@ export class CreateEventComponent {
    }
 
    createEvent() {
+    if(this.isLoading) {
+      return;
+    }
+    this.isLoading = true;
     let value = this.eventForm.value;
     let body: ICreateEvent = {
       name: value.eventDetails.name,
       description: value.eventDetails.description,
       eventType: value.eventDetails.eventType.id,
+      phoneNumber: value.eventDetails.phoneNumber,
       address: value.location.address,
       latitude: value.location.latitude,
       longitude: value.location.longitude,
@@ -207,14 +214,16 @@ export class CreateEventComponent {
         content: EVENT_MESSAGES.EVENT_CREATED,
         animation: { type: 'fade', duration: 300 },
         position: { horizontal: 'center', vertical: 'bottom' },
-      })
+      });
+      this.isLoading = false;
     }, (err) => {
       this.dialog.close();
       this.notificationService.show({
         content: ERROR_MESSAGES.SOMETHING_WRONG,
         animation: { type: 'fade', duration: 300 },
         position: { horizontal: 'center', vertical: 'bottom' },
-      })
+      });
+      this.isLoading = false;
     })
    }
 
