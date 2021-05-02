@@ -11,6 +11,7 @@ import { CreateEventComponent } from '../create-event/create-event.component';
 export class EventsComponent implements OnInit {
 
   events = [];
+  searchKey = '';
 
   constructor(private dialogService: DialogService,
     private eventService: EventService) { }
@@ -21,6 +22,10 @@ export class EventsComponent implements OnInit {
       content: CreateEventComponent,
       width: '50%'
     })
+  }
+
+  search() {
+    this.eventService.searchEvents(this.searchKey);
   }
 
   init() {

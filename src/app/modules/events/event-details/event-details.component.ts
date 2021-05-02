@@ -2,6 +2,7 @@ import { AgmMap } from '@agm/core';
 import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as momenttz from 'moment-timezone';
+import { ROUTERURL } from 'src/app/constants/url.constants';
 import { IJoinEvent } from 'src/app/interfaces/event.interface';
 import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
@@ -28,7 +29,8 @@ export class EventDetailsComponent implements OnInit {
 
   constructor(private eventService: EventService,
     private route: ActivatedRoute,
-    private userService: UserService) { 
+    private userService: UserService,
+    private router: Router) { 
     this.eventId = JSON.parse(this.route.snapshot.paramMap.get('id'));
     this.currentUser = this.userService.getCurrentUser();
   }
@@ -53,6 +55,10 @@ export class EventDetailsComponent implements OnInit {
         }
       })
     })
+  }
+
+  back() {
+    this.router.navigate([ROUTERURL.EVENTS])
   }
 
   join() {

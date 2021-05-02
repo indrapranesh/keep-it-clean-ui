@@ -7,7 +7,7 @@
                   [nodes]="filter.values"
                   textField="text"
                   [kendoTreeViewCheckable]="filter.selection"
-                  (checkedKeysChange)="filter($event)"
+                  (checkedChange)="handleCheck($event)"
             ></kendo-treeview>
         </div>
      </div>

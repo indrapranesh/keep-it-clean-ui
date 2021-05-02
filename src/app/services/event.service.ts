@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { APIURL, BASE_URL } from '../constants/url.constants';
@@ -24,8 +24,15 @@ export class EventService {
     });
   }
 
-  getEvents() {
+  getEvents(key: string = '') {
     this.http.get(`${BASE_URL}${APIURL.GET_EVENTS}`).subscribe((res: any)=> {
+      this.events.next(res.rows);
+    });
+  }
+
+  searchEvents(key: string) {
+    let params = new HttpParams().set('key', key);
+    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS}`, {params: params}).subscribe((res: any)=> {
       this.events.next(res.rows);
     });
   }

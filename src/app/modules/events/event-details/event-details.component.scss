@@ -10,6 +10,14 @@
         }
     }
     .details-wrapper {
+        .back-link {
+            p:hover {
+                text-decoration: underline;
+            }
+            .back-icon {
+                color: $primary-color;
+            }
+        }
         .join-btn {
             min-width: 100px;
             height: 35px;

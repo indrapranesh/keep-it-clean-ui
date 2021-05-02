@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TreeItemLookup } from '@progress/kendo-angular-treeview';
 import { eventTypes, sort, timings } from 'src/app/constants/events.constants';
 
 @Component({
@@ -28,8 +29,8 @@ export class EventFilterComponent implements OnInit {
 
   constructor() { }
 
-  filter() {
-
+  handleCheck(event: TreeItemLookup) {
+    console.log(event);
   }
 
   ngOnInit(): void {

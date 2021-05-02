@@ -12,11 +12,11 @@
                     <app-event-filter></app-event-filter>
                 </div>
                 <div class="col-lg-9 event-list-wrapper">
-                    <div class="events-search d-flex justify-between pb-50">
-                        <p class="m-0">{{events?.length}} events</p>
+                    <div class="events-search d-flex justify-right pb-50">
+                        <!-- <p class="m-0">{{events?.length}} events</p> -->
                         <div class="search-wrapper">
-                            <kendo-textbox class="w-100 search-input"
-                                placeholder="Search Events"  required>
+                            <kendo-textbox class="w-100 search-input" [(ngModel)]="searchKey"
+                                placeholder="Search Events"  required (keyup.enter)="search()">
                                 <ng-template kendoTextBoxPrefixTemplate>
                                     <button kendoButton look="clear" [icon]="'zoom'"></button>
                                 </ng-template>
