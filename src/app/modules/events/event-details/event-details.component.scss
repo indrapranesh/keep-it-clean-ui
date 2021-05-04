@@ -2,13 +2,6 @@
 
 .ev-event-details {
     min-height: calc(100vh - 60px);
-    .hero-wrapper {
-        background: $bg-blue;
-        height: 150px;
-        .header {
-            color: $text-main;
-        }
-    }
     .details-wrapper {
         .back-link {
             p:hover {

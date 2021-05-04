@@ -1,0 +1,13 @@
+@import '../../../../assets/styles/variables';
+
+.ev-recycling {
+    min-height: calc(100vh - 60px);
+    .location-input {
+        .address {
+            width: 300px;
+        }
+    }
+    .gps-icon {
+        height: 20px;
+    }
+}

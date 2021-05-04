@@ -1,5 +1,17 @@
 @import './variables';
 
+.grey-text {
+	color: $grey-text;
+}
+
+.primary-text {
+	color: $primary-color
+}
+
+.secondary-text {
+	color: $secondary-color;
+}
+
 $header-1: 2.5rem;
 $header-2: 2rem;
 $header-3: 1.75rem;
@@ -112,4 +124,8 @@ $fontExtraBold: 800;
 
 .letter-spacing {
 	letter-spacing: 1.68px;
+}
+
+.font-italic {
+	font-style: italic;
 }

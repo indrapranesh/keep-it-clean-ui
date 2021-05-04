@@ -51,6 +51,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([event.route])
   }
 
+  navLanding() {
+    this.router.navigate([ROUTERURL.LANDING]);
+  }
+
   ngOnInit(): void {
     this.sessionService.isAuthenticated.asObservable().subscribe(
       (res) => {

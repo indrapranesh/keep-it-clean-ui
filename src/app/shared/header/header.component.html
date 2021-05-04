@@ -1,18 +1,18 @@
 <div class="ev-header">
     <kendo-appbar class="ev-appbar container">
         <kendo-appbar-section>
-            <img class="logo" src="assets/icons/ev-logo.svg" />
+            <img (click)="navLanding()" class="logo" src="assets/icons/ev-logo.svg" />
         </kendo-appbar-section>
         <kendo-appbar-spacer></kendo-appbar-spacer>
         <kendo-appbar-section>
             <kendo-menu [items]="navItems">
                 <ng-template kendoMenuItemLinkTemplate let-item="item" let-index="index">
-                    <a [kendoMenuItemLink]="index" [routerLink]="item.path">
+                    <a class="ml-3 font-semibold" [kendoMenuItemLink]="index" routerLinkActive="active" [routerLink]="item.path">
                         {{ item.text }}
                     </a>
                 </ng-template>
             </kendo-menu>
-            <button kendoButton [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
+            <button class="ml-3" kendoButton size="large" [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
             <kendo-dropdownbutton [data]="profileNav" class="profile-dropdown" (itemClick)="profileNavigate($event)" *ngIf="isAuthenticated">  
                 <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer" *ngIf="isAuthenticated"></kendo-avatar>
             </kendo-dropdownbutton>

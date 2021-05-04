@@ -3,7 +3,6 @@
         <p class="header font-size-xl"><span class="font-regular">Join your hands and </span>
             <span class="font-bold">make a better place to live</span>
         </p>
-        <button class="k-button k-primary" (click)="host()">Host an Event</button>
     </div>
     <div class="events container">
         <div class="event-list pt-50">
@@ -12,7 +11,7 @@
                     <app-event-filter></app-event-filter>
                 </div>
                 <div class="col-lg-9 event-list-wrapper">
-                    <div class="events-search d-flex justify-right pb-50">
+                    <div class="events-search d-flex justify-between pb-50">
                         <!-- <p class="m-0">{{events?.length}} events</p> -->
                         <div class="search-wrapper">
                             <kendo-textbox class="w-100 search-input" [(ngModel)]="searchKey"
@@ -22,6 +21,7 @@
                                 </ng-template>
                             </kendo-textbox>
                         </div>
+                        <button class="k-button k-primary" (click)="host()">Host an Event</button>
                     </div>
                     <app-event-list [events]="events"></app-event-list>
                 </div>

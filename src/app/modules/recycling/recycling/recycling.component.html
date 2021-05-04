@@ -1,1 +1,34 @@
-<p>recycling works!</p>
+<div class="ev-recycling">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl"><span class="font-regular">Find your nearest </span>
+            <span class="font-bold">recycling center</span>
+        </p>
+    </div>
+    <div class="container">
+        <div class="d-flex justify-center flex-column align-center pt-100">
+            <div class="location-input">
+                <kendo-autocomplete
+                    [filterable]="true"
+                    [data]="addressSearchResults"
+                    [placeholder]="'Enter your address'"
+                    class="address"
+                    (filterChange)="search($event)"
+                    [value]="location"
+                    (valueChange)="getLocation($event)"
+                >
+                </kendo-autocomplete>
+            </div>
+            <div class="pt-3">
+                <p class="m-0 grey-text text-uppercase font-italic font-size-medium">or</p>
+            </div>
+            <div class="p-3 d-flex align-center cursor-pointer" (click)="accessLocation()">
+                <img src="assets/icons/gps.svg" class="gps-icon" />
+                <p class="m-0 secondary-text font-bold pl-2">Use my current location</p>
+            </div>
+
+            <button kendoButton class="k-primary mt-3" (click)="findRecyclingCenters()" >Find nearest centers</button>
+        </div>
+        <app-centers-list [centers]="recyclingCenters"></app-centers-list>
+    </div>
+    
+</div>

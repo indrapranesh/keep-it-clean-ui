@@ -17,14 +17,24 @@
                 .k-menu-item {
                     border-bottom: 3px solid transparent;
                     a {
-                        color: $text-main;
+                        padding-left: 5px;
+                        padding-right: 5px;
                     }
-                }
-                .k-menu-item:hover {
-                    border-bottom: 3px solid $primary-color;
+                    a:hover {
+                        color: $primary-color;
+                    }
+                    .active {
+                        color: $primary-color;
+                        font-weight: 600;
+                    }
                 }
                 .k-menu-item:focus {
                     box-shadow: none;
+                }
+            }
+            .k-menu:not(.k-context-menu) {
+                .k-item {
+                    color: $grey-text;
                 }
             }
         }

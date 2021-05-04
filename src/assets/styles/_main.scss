@@ -21,6 +21,7 @@
 
 body {
     margin: 0;
+    font-family: 'Roboto';
 }
 
 .facebook-icon {
@@ -31,4 +32,13 @@ body {
 .twitter-icon {
     color: #1DA1F2;
     font-size: 28px;
+}
+
+.hero-wrapper {
+    background: $hero-gradient;
+    height: 150px;
+    .header {
+        color: $white-color;
+        font-size: 1.5rem;
+    }
 }
