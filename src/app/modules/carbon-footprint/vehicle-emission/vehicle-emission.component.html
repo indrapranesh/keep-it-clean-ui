@@ -1,0 +1,16 @@
+<ng-container [formGroup]="vehicleForm">
+    <fieldset class="k-form-fieldset">
+        <div class="row pb-3">
+            <kendo-label class="col-md-3" [for]="petrol" text="Petrol"></kendo-label>
+            <kendo-textbox class="col-md-6 p-0" formControlName="petrol" #petrol></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3" class="col-md-3" [data]="units.liquid.units" formControlName="petrolUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3">
+            <kendo-label class="col-md-3" [for]="diesel" text="Diesel"></kendo-label>
+            <kendo-textbox class="col-md-6 p-0" formControlName="diesel" #diesel></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3" [data]="units.liquid.units" formControlName="dieselUnit"
+                required></kendo-dropdownlist>
+        </div>
+    </fieldset>
+</ng-container>

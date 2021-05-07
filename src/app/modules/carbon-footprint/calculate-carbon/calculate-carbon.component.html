@@ -1,0 +1,42 @@
+<div class="ev-cf">
+    <div class="form-wrapper d-flex justify-center">
+        <div class="stepper-wrapper">
+            <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+            <form class="k-form" [formGroup]="cfForm">
+                <div *ngIf="currentStep === 0" >
+                    <app-home-emission [homeForm]="currentGroup"></app-home-emission>
+                </div>
+                <div *ngIf="currentStep === 1" class="mt-3">
+                    <app-vehicle-emission [vehicleForm]="currentGroup"></app-vehicle-emission>
+                </div>
+                <div *ngIf="currentStep === 2" class="mt-3">
+                    <app-public-emission [publicTransportForm]="currentGroup"></app-public-emission>
+                </div>
+                <div *ngIf="currentStep === 3" class="mt-3">
+                    <div class="results pt-5">
+                        <p class="font-size-large m-0 text-center">
+                            Your total CO2 emission is
+                            <span class="font-size-xxl m-0">
+                                {{carbonEmission}}
+                            </span>
+                            metric tons
+                        </p>
+                    </div>
+                    <div class="pt-3">
+                        
+                    </div>
+                </div>
+                <span class="k-form-separator"></span>
+                <div class="k-form-buttons k-buttons-end">
+                    <span class="page">Step {{ currentStep + 1 }} of 4</span>
+                    <div>
+                        <button class="k-button prev" *ngIf="currentStep !== 0" (click)="prev()">Previous</button>
+                        <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 2">Next</button>
+                        <button class="k-button k-primary" (click)="calculate()" [disabled]="!cfForm.valid" *ngIf="currentStep === 2">
+                            Calculate Carbon Footprint</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
