@@ -1,7 +1,12 @@
 import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DialogRef } from '@progress/kendo-angular-dialog';
 import { StepperComponent } from '@progress/kendo-angular-layout';
 import { units } from 'src/app/constants/carbon.constants';
+import { UserEmissionReq } from 'src/app/interfaces/carbon.interface';
+import { CarbonFootprintService } from 'src/app/services/carbon-footprint.service';
+import { UserService } from 'src/app/services/user.service';
+import { month } from '../../../constants/date.constants';
 
 @Component({
   selector: 'app-calculate-carbon',
@@ -13,6 +18,8 @@ export class CalculateCarbonComponent implements OnInit {
   @Input() public carbonData: Array<any>;
   public units = units;
   carbonEmission: number = 0;
+  months = month;
+  currentYear: number;
 
   public cfForm = new FormGroup({
     home: new FormGroup({
@@ -48,7 +55,7 @@ export class CalculateCarbonComponent implements OnInit {
       taxiUnit: new FormControl(units.distance.baseUnit, [Validators.required]),
     }),
     resultsForm: new FormGroup({
-
+      month: new FormControl(null, [])
     })
   });
 
@@ -112,7 +119,10 @@ export class CalculateCarbonComponent implements OnInit {
       return groups[index];
   }
 
-  constructor() { 
+  constructor(private carbonService: CarbonFootprintService,
+    private userService: UserService,
+    public dialog : DialogRef) { 
+      this.currentYear = (new Date()).getFullYear();
   }
 
   calculate() {
@@ -143,15 +153,56 @@ export class CalculateCarbonComponent implements OnInit {
         })
       })
     });
-    this.carbonEmission = this.carbonEmission/1000;
+    this.carbonEmission = (this.carbonEmission/1000);
     this.next();
   }
 
 
   // Save User Emission
 
+  addCarbon() {
+    if(!this.cfForm.get('resultsForm').value.month) {
+      return;
+    }
+    const date: Date = new Date(new Date().getFullYear(), (this.cfForm.get('resultsForm').value.month.id)-1 , 1,0,0,0);
+    console.log(date);
+    let body: UserEmissionReq = {
+      carbonEmission: this.carbonEmission,
+      date:  date
+    }
+    console.log(body);
+    this.carbonService.addUserCarbonEmission(this.userService.getCurrentUser().id, body).subscribe(
+      (res) => {
+        console.log('Emission data added');
+        this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
+      }
+    )
+  }
+
+
+  close() {
+    this.dialog.close()
+  }
+
+  generateMonths() {
+    this.months.map((month, index) => {
+      this.carbonService.userEmissions.map((emission)=> {
+        let date = new Date(emission.date);
+        let year = new Date().getFullYear();
+        if(date.getMonth() == index && date.getFullYear() == year) {
+          month['disabled'] = true;
+        }
+      });
+    });
+    console.log(this.months);
+  }
+
+  public itemDisabled(itemArgs: { dataItem: any, index: number }) {
+    return itemArgs.dataItem.disabled;
+  }
 
   ngOnInit(): void {
+    this.generateMonths();
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from '@progress/kendo-angular-dialog';
 import { CarbonFootprintService } from 'src/app/services/carbon-footprint.service';
+import { UserService } from 'src/app/services/user.service';
 import { CalculateCarbonComponent } from '../calculate-carbon/calculate-carbon.component';
 
 @Component({
@@ -11,9 +12,13 @@ import { CalculateCarbonComponent } from '../calculate-carbon/calculate-carbon.c
 export class CarbonFootprintComponent implements OnInit {
 
   carbonData: any;
+  emissionData = [];
 
   constructor(private dialogService: DialogService,
-    private carbonService: CarbonFootprintService) { }
+  private carbonService: CarbonFootprintService,
+  private userService: UserService) { 
+    
+  }
 
   openCalculator() {
     let dialogRef = this.dialogService.open({
@@ -25,12 +30,19 @@ export class CarbonFootprintComponent implements OnInit {
     data.carbonData = this.carbonData;
   }
 
-  ngOnInit(): void {
+  init() {
     this.carbonService.getEmissionCategories().subscribe(
       (res) => {
         this.carbonData = res;
-      }
-    )
+    });
+    this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
+    this.carbonService.chartData.asObservable().subscribe((res) => {
+      this.emissionData = res;
+    });
+  }
+
+  ngOnInit(): void {
+    this.init();
   }
 
 }

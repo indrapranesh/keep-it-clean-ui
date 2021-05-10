@@ -15,7 +15,9 @@ export const APIURL = {
     JOIN_EVENT: '/event/join',
     GET_JOINED_EVENTS: (id: number) => `/events/joined/${id}`,
     GET_HOSTED_EVENTS: (id: number) => `/events/hosted/${id}`,
-    GET_CARBON_CATEGORIES: '/carbon/categories'
+    GET_CARBON_CATEGORIES: '/carbon/categories',
+    CREATE_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
+    GET_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`
 }
 
 export const ROUTERURL = {

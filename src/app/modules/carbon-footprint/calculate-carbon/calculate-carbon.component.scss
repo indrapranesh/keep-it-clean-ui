@@ -3,6 +3,11 @@
         display: table;
         margin: auto;
         width: 450px;
+        .results {
+            .months-dd {
+                width: 100px;
+            }
+        }
     }
     .k-stepper {
         align-self: center;

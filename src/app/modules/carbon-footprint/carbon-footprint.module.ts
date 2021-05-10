@@ -14,6 +14,7 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { HomeEmissionComponent } from './home-emission/home-emission.component';
 import { VehicleEmissionComponent } from './vehicle-emission/vehicle-emission.component';
 import { PublicEmissionComponent } from './public-emission/public-emission.component';
+import { ChartModule } from '@progress/kendo-angular-charts';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PublicEmissionComponent } from './public-emission/public-emission.compo
     FormsModule,
     ReactiveFormsModule,
     DialogsModule,
-    StepperModule
+    StepperModule,
+    ChartModule
   ]
 })
 export class CarbonFootprintModule { }

@@ -18,6 +18,10 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { ChartsModule } from '@progress/kendo-angular-charts';
+import 'hammerjs';
+
+
 
 
 
@@ -52,6 +56,7 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
     DateInputsModule,
     TreeViewModule,
     IndicatorsModule,
+    ChartsModule,
   ],
   providers: [
     PlacePredictionService
