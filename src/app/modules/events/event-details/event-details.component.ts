@@ -19,6 +19,7 @@ export class EventDetailsComponent implements OnInit {
   timezone = momenttz.tz.guess();
   currentUser;
   joined = false;
+  participants = [];
 
   latitude: number;
   longitude: number;
@@ -54,6 +55,13 @@ export class EventDetailsComponent implements OnInit {
           this.joined = true;
         }
       })
+    });
+    this.eventService.getParticipants(this.eventId).subscribe((res: Array<any>) => {
+      let participants = [];
+      res.map((participant) => {
+        participants.push(participant.user);
+      });
+      this.participants = participants;
     })
   }
 

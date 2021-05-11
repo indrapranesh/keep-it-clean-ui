@@ -20,10 +20,12 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { MyEventsComponent } from './my-events/my-events.component';
+import { ExportParticipantsComponent } from './export-participants/export-participants.component';
+import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 
 
 @NgModule({
-  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent, EventDetailsComponent, MyEventsComponent ],
+  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent, EventDetailsComponent, MyEventsComponent, ExportParticipantsComponent ],
   imports: [
     CommonModule,
     EventsRoutingModule,
@@ -41,7 +43,8 @@ import { MyEventsComponent } from './my-events/my-events.component';
     AgmCoreModule,
     DateInputsModule,
     IntlModule,
-    TreeViewModule
+    TreeViewModule,
+    ExcelExportModule
   ],
   providers: [
   ]

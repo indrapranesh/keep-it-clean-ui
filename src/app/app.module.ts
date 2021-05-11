@@ -20,6 +20,8 @@ import { TreeViewModule } from '@progress/kendo-angular-treeview';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 import 'hammerjs';
+import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
+
 
 
 
@@ -57,6 +59,7 @@ import 'hammerjs';
     TreeViewModule,
     IndicatorsModule,
     ChartsModule,
+    ExcelExportModule,
   ],
   providers: [
     PlacePredictionService

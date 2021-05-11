@@ -56,4 +56,8 @@ export class EventService {
   getHostedEvents(userId: number) {
     return this.http.get(`${BASE_URL}${APIURL.GET_HOSTED_EVENTS(userId)}`);
   }
+
+  getParticipants(eventId: number) {
+    return this.http.get(`${BASE_URL}${APIURL.GET_PARTICIPANTS(eventId)}`);
+  }
 }

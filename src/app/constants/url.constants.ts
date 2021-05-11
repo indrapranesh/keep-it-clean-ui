@@ -17,7 +17,8 @@ export const APIURL = {
     GET_HOSTED_EVENTS: (id: number) => `/events/hosted/${id}`,
     GET_CARBON_CATEGORIES: '/carbon/categories',
     CREATE_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
-    GET_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`
+    GET_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
+    GET_PARTICIPANTS: (id: number) => `/event/${id}/participants`
 }
 
 export const ROUTERURL = {

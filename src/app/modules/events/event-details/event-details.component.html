@@ -29,6 +29,7 @@
                         </ng-container>
                         <ng-container *ngIf="currentUser?.id == event?.creator">
                             <button kendoButton class="k-secondary join-btn w-100 mb-3 cursor-default" size="large" disabled>You created this event</button>
+                            <app-export-participants [participants]="participants"[eventName]="event?.name"></app-export-participants>
                         </ng-container>
                         <ng-container *ngIf="currentUser?.id !== event?.creator && joined">
                             <button kendoButton class="k-secondary join-btn w-100 mb-3 cursor-default" size="large" disabled>Joined</button>
