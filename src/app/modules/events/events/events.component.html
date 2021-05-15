@@ -3,16 +3,13 @@
         <p class="header font-size-xl"><span class="font-regular">Join your hands and </span>
             <span class="font-bold">make a better place to live</span>
         </p>
+        <button class="k-button k-primary ml-3" (click)="host()">Host an Event</button>
     </div>
     <div class="events container">
         <div class="event-list pt-50">
-            <div class="row">
-                <div class="col-lg-3 filter-wrapper">
-                    <app-event-filter></app-event-filter>
-                </div>
-                <div class="col-lg-9 event-list-wrapper">
-                    <div class="events-search d-flex justify-between pb-50">
-                        <!-- <p class="m-0">{{events?.length}} events</p> -->
+            <div class="event-list-wrapper">
+                <div class="events-search d-flex justify-between pb-50">
+                    <div class="d-flex align-center">
                         <div class="search-wrapper">
                             <kendo-textbox class="w-100 search-input" [(ngModel)]="searchKey"
                                 placeholder="Search Events"  required (keyup.enter)="search()">
@@ -21,10 +18,14 @@
                                 </ng-template>
                             </kendo-textbox>
                         </div>
-                        <button class="k-button k-primary" (click)="host()">Host an Event</button>
+                    </div> 
+                    <div class="d-flex align-center">
+                        <kendo-dropdownlist class="" [data]="sort" [(ngModel)]="selectedSort"
+                        textField="text" valueField="value"
+                        required></kendo-dropdownlist>
                     </div>
-                    <app-event-list [events]="events"></app-event-list>
                 </div>
+                <app-event-list [events]="events"></app-event-list>
             </div>
         </div>
     </div>

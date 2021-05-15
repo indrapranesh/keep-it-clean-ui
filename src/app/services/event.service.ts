@@ -24,8 +24,8 @@ export class EventService {
     });
   }
 
-  getEvents(key: string = '') {
-    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS}`).subscribe((res: any)=> {
+  getEvents(state: string) {
+    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS(state,new Date().toISOString())}`).subscribe((res: any)=> {
       this.events.next(res.rows);
     });
   }

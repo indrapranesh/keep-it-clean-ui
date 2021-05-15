@@ -1,6 +1,6 @@
 <div class="ev-event-list">
     <div *ngIf="events?.length < 1" class="w-100 empty-data d-flex align-center justify-center">
-        <p class="text-uppercase font-size-medium font-semibold">No Events Found</p>
+        <p class="text-uppercase font-size-medium font-semibold">No Upcoming events</p>
     </div>
     <div *ngFor="let event of events" class="pb-4">
         <kendo-card class="event-card cursor-pointer" (click)="openDetails(event)" [width]="'100%'">

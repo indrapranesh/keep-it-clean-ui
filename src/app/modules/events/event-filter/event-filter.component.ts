@@ -11,20 +11,15 @@ export class EventFilterComponent implements OnInit {
 
   filters = [
     {
-      name: 'Sort',
+      name: 'Sort By',
       values: sort,
       selection: { mode: 'single' }
     },
-    {
-      name: 'Type',
-      values: eventTypes,
-      selection: { mode: 'single' }
-    },
-    {
-      name: 'Timings',
-      values: timings,
-      selection: { mode: 'multiple' }
-    }
+    // {
+    //   name: 'Type',
+    //   values: eventTypes,
+    //   selection: { mode: 'single' }
+    // }
   ]
 
   constructor() { }

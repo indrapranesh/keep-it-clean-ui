@@ -31,4 +31,8 @@ export class SessionService {
   verifyUser(body: IVerifyReq) {
     return this.http.post(`${BASE_URL}${APIURL.VERIFY_USER}`, body)
   }
+
+  firstLoginUpdate(userId: number) {
+    return this.http.patch(`${BASE_URL}${APIURL.FIRST_LOGIN_UPDATE(userId)}`, {})
+  }
 }

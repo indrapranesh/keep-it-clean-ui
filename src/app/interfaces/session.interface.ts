@@ -10,6 +10,11 @@ export interface ISignUpReq {
     email: string;
     phoneNumber: string;
     password: string;
+    address: string;
+    state: string;
+    country: string;
+    latitude: string;
+    longitude: string;
 }
 
 export interface IVerifyReq {

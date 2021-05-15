@@ -7,11 +7,17 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { RouterModule } from '@angular/router';
 import { NotificationModule } from '@progress/kendo-angular-notification';
+import { AddressSearchComponent } from './address-search/address-search.component';
+import { AgmCoreModule } from '@agm/core';
+import { AutoCompleteModule } from '@progress/kendo-angular-dropdowns';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AchievementComponent } from './achievement/achievement.component';
+import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, AddressSearchComponent, AchievementComponent],
   imports: [
     CommonModule,
     AppBarModule,
@@ -20,10 +26,17 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
     LayoutModule,
     ButtonsModule,
     RouterModule,
-    NotificationModule
+    NotificationModule,
+    AgmCoreModule,
+    AutoCompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ScrollViewModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    AddressSearchComponent,
+    AchievementComponent
   ]
 })
 export class SharedModule { }

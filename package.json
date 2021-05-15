@@ -39,6 +39,7 @@
     "@progress/kendo-angular-navigation": "^1.0.0",
     "@progress/kendo-angular-notification": "^3.0.0",
     "@progress/kendo-angular-popup": "^4.0.0",
+    "@progress/kendo-angular-scrollview": "^4.0.3",
     "@progress/kendo-angular-treeview": "^5.0.0",
     "@progress/kendo-data-query": "^1.5.4",
     "@progress/kendo-licensing": "^1.0.2",

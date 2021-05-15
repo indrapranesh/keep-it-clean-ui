@@ -27,14 +27,14 @@ export const timings = [
 export const sort = [
     {
         text: 'Recent',
-        value: 'Recent'
+        value: 'recent'
     },
     {
-        text: 'Short Event',
-        value: 'Short'
+        text: 'Short to Long',
+        value: 'short'
     },
     {
-        text: 'Most Relevent',
-        value: 'Relevant'
+        text: 'Popular',
+        value: 'popular'
     }
 ]

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGaurdService } from './guards/auth-guard.service';
 import { LandingComponent } from './modules/landing/landing/landing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent
+    component: LandingComponent,
+    canActivate: [AuthGaurdService]
   },
   {
     path: 'laws',

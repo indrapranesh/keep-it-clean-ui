@@ -1,5 +1,5 @@
 import { AgmMap } from '@agm/core';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DialogRef } from '@progress/kendo-angular-dialog';
 import { StepperComponent } from '@progress/kendo-angular-layout';
@@ -17,7 +17,16 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './create-event.component.html',
   styleUrls: ['./create-event.component.scss']
 })
-export class CreateEventComponent {
+export class CreateEventComponent implements OnInit {
+
+  // Timings From and To
+  public fromMin: Date = moment().add(1, 'day').toDate();
+  public fromMax: Date = moment().add(3, 'months').toDate();
+  public format = 'MM/dd/yyyy';
+
+  public fromTime1: Date =  moment().startOf('day').add(1, 'day').toDate();
+  public fromTime2: Date = moment().startOf('day').add(1, 'day').add(1, 'hour').toDate();
+  public toTime: Date = moment().add(1, 'day').endOf('day').toDate();
 
   public eventForm = new FormGroup({
     eventDetails: new FormGroup({
@@ -28,6 +37,8 @@ export class CreateEventComponent {
     }),
     location: new FormGroup({
       address: new FormControl('', [Validators.required]),
+      state: new FormControl(''),
+      country: new FormControl(''),
       latitude: new FormControl(null, [Validators.required]),
       longitude: new FormControl(null, [Validators.required])
     }),
@@ -38,25 +49,7 @@ export class CreateEventComponent {
     })
   })
   public currentStep = 0;
-  public addressSearchResults = [];
-  predictions = [];
-  public address: string = '';
-  markerPresent = false;
   isLoading = false;
-
-  //map
-  latitude: number = 31.9686;
-  longitude: number = -99.9018;
-  zoom: number = 3;
-
-  // Timings From and To
-  public fromMin: Date = moment().toDate();
-  public fromMax: Date = moment().add(3, 'months').toDate();
-  public format = 'MM/dd/yyyy';
-
-  public fromTime1: Date = moment().toDate();
-  public fromTime2: Date = new Date(2000, 2, 10, 2, 30);
-  public toTime: Date = new Date(2002, 2, 10, 22, 15)
 
   @ViewChild('stepper', { static: true })
   public stepper: StepperComponent;
@@ -125,62 +118,26 @@ export class CreateEventComponent {
       return groups[index];
   }
 
-  // Address AutoComplete
-  search(term: string){
-    console.log('searching');
-    this.placePredictionService.getPlacePredictions(term).subscribe(
-      (res) => {
-        this.predictions = [];
-        this.addressSearchResults = [];
-        this.predictions = res;
-        if(res && res.length) {
-          res.map((address) => {
-            this.addressSearchResults.push(address.description)
-          })
-        }
-      }
-    )
-   }
-   getLocation(event: string) {
-    let placeId;
-    if(event.length > 2) {
-      placeId = this.predictions.find(x => x.description == event).place_id
-      this.placePredictionService.getPlaceDetails(placeId).subscribe(
-      (res: any) => {
-        this.latitude = res.geometry.location.lat();
-        this.longitude = res.geometry.location.lng();
-        this.zoom = 13;
-        this.markerPresent = true;
-        this.address = event;
-        this.currentGroup.patchValue({
-          address: event, 
-          latitude: this.latitude,
-          longitude: this.longitude
-        });
-        this.currentGroup.markAllAsTouched();
-      }
-    )
-    }
-   }
+  
 
    dateChange(event: Date) {
-    let date = event.toISOString()
+    let date = moment(event).startOf('day').toDate();
     this.fromTime1 = moment(date).toDate();
     this.fromTime2 = (moment(date).add(1, 'hour')).toDate();
     this.toTime = (moment(date).endOf('day').toDate());
-    console.log(this.fromTime1, this.fromTime2, this.toTime)
    }
 
    timeChange(event: Date, time) {
     let dateString = event.toISOString();
     let date = moment(this.fromTime1).format('DD MM YYYY');
     let startTime, endTime;
+    console.log(time);
     if(time == 'start') {
       this.fromTime2 = (moment(moment(dateString).add(1, 'hour'))).toDate();
       startTime = moment(event).format('hh:mm:ss');
       this.eventForm.get('timings').patchValue({
         startTime: moment(`${date} ${startTime}`, 'DD MM YYYY hh:mm:ss').toDate(),
-      })
+      });
     } else if(time == 'end') {
       this.toTime = moment(dateString).toDate();
       endTime = moment(event).format('hh:mm:ss');
@@ -188,6 +145,7 @@ export class CreateEventComponent {
         endTime: moment(`${date} ${endTime}`, 'DD MM YYYY hh:mm:ss').toDate()
       })
     }
+    console.log(this.eventForm.value)
    }
 
    createEvent() {
@@ -202,6 +160,8 @@ export class CreateEventComponent {
       eventType: value.eventDetails.eventType.id,
       phoneNumber: value.eventDetails.phoneNumber,
       address: value.location.address,
+      state: value.location.state,
+      country: value.location.country,
       latitude: value.location.latitude,
       longitude: value.location.longitude,
       creator: (this.userService.getCurrentUser()).id,
@@ -226,5 +186,7 @@ export class CreateEventComponent {
       this.isLoading = false;
     })
    }
+
+   ngOnInit() {}
 
 }

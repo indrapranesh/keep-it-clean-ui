@@ -22,6 +22,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { MyEventsComponent } from './my-events/my-events.component';
 import { ExportParticipantsComponent } from './export-participants/export-participants.component';
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
     DateInputsModule,
     IntlModule,
     TreeViewModule,
-    ExcelExportModule
+    ExcelExportModule,
+    PopupModule,
+    SharedModule
   ],
   providers: [
   ]

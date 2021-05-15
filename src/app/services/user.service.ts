@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { APIURL, BASE_URL } from '../constants/url.constants';
 import { SessionService } from './session.service';
 
 @Injectable({
@@ -6,7 +9,10 @@ import { SessionService } from './session.service';
 })
 export class UserService {
 
-  constructor(private sessionService: SessionService) { 
+  currentUser = new BehaviorSubject<any>(null);
+
+  constructor(private sessionService: SessionService,
+    private http: HttpClient) { 
   }
 
   getCurrentUser() {
@@ -15,5 +21,9 @@ export class UserService {
       return;
     }
     return JSON.parse(atob(localStorage.getItem('USER')));
+  }
+
+  getUserDetails(userId: number) {
+    return this.http.get(`${BASE_URL}${APIURL.GET_USER(userId)}`);
   }
 }

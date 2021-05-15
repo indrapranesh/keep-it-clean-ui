@@ -14,7 +14,7 @@
             </kendo-menu>
             <button class="ml-3" kendoButton size="large" [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
             <kendo-dropdownbutton [data]="profileNav" class="profile-dropdown" (itemClick)="profileNavigate($event)" *ngIf="isAuthenticated">  
-                <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer" *ngIf="isAuthenticated"></kendo-avatar>
+                <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer"></kendo-avatar>
             </kendo-dropdownbutton>
         </kendo-appbar-section>
     </kendo-appbar>

@@ -7,7 +7,7 @@
     .event-card {
         border-radius: 5px;
         border: 1px solid transparent;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.03);
         .row {
             .description {
 
@@ -19,6 +19,7 @@
     }
     .event-card:hover {
         border: 1px solid $primary-color;
+        box-shadow: none;
         //border-left: 5px solid $primary-color;
     }   
 }

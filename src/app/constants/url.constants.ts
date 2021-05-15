@@ -10,7 +10,7 @@ export const APIURL = {
     RESET_PASSWORD: '/password/reset',
     GET_EVENT_TYPES: '/event/types',
     CREATE_EVENT: '/event',
-    GET_EVENTS: '/events',
+    GET_EVENTS: (state: string, date: string) => `/events/${state}?date=${date}`,
     GET_EVENT: (id:number) => `/event/${id}`,
     JOIN_EVENT: '/event/join',
     GET_JOINED_EVENTS: (id: number) => `/events/joined/${id}`,
@@ -18,7 +18,11 @@ export const APIURL = {
     GET_CARBON_CATEGORIES: '/carbon/categories',
     CREATE_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
     GET_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
-    GET_PARTICIPANTS: (id: number) => `/event/${id}/participants`
+    GET_PARTICIPANTS: (id: number) => `/event/${id}/participants`,
+    GET_USER_ACHIEVEMENTS: (id: number)=> `/achievements/${id}`,
+    ACHIEVEMENT_SHOWN: (id: number) => `/achievement/${id}`,
+    FIRST_LOGIN_UPDATE: (id: number) => `/user/login/update/${id}`,
+    GET_USER: (id: number) => `/user/${id}`
 }
 
 export const ROUTERURL = {
