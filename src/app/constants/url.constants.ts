@@ -11,6 +11,7 @@ export const APIURL = {
     GET_EVENT_TYPES: '/event/types',
     CREATE_EVENT: '/event',
     GET_EVENTS: (state: string, date: string) => `/events/${state}?date=${date}`,
+    SEARCH_EVENTS: (state: string) => `/events/search/${state}`,
     GET_EVENT: (id:number) => `/event/${id}`,
     JOIN_EVENT: '/event/join',
     GET_JOINED_EVENTS: (id: number) => `/events/joined/${id}`,

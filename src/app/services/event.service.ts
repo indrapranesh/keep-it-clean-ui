@@ -11,6 +11,7 @@ export class EventService {
 
   eventTypes = [];
   events: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  state = '';
 
   constructor(private http: HttpClient) { }
 
@@ -30,9 +31,9 @@ export class EventService {
     });
   }
 
-  searchEvents(key: string) {
+  searchEvents(state:string, key: string) {
     let params = new HttpParams().set('key', key);
-    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS}`, {params: params}).subscribe((res: any)=> {
+    this.http.get(`${BASE_URL}${APIURL.SEARCH_EVENTS(state)}`, {params: params}).subscribe((res: any)=> {
       this.events.next(res.rows);
     });
   }

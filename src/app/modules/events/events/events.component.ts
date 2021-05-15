@@ -30,7 +30,7 @@ export class EventsComponent implements OnInit, OnDestroy {
   }
 
   search() {
-    this.eventService.searchEvents(this.searchKey);
+    this.eventService.searchEvents(this.eventService.state, this.searchKey);
   }
 
   init() {
@@ -38,6 +38,7 @@ export class EventsComponent implements OnInit, OnDestroy {
     this.userService.currentUser.asObservable().subscribe(
     (res) => {
       if(res?.id) {
+        this.eventService.state = res.address.state;
         this.eventService.getEvents(res.address.state);
       }
     })
