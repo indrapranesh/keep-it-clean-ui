@@ -23,6 +23,8 @@ import 'hammerjs';
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
+import { PagerModule } from '@progress/kendo-angular-pager';
+
 
 
 
@@ -66,6 +68,7 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
     ExcelExportModule,
     PopupModule,
     ScrollViewModule,
+    PagerModule,
   ],
   providers: [
     PlacePredictionService

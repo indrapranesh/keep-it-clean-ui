@@ -11,7 +11,7 @@ export const APIURL = {
     GET_EVENT_TYPES: '/event/types',
     CREATE_EVENT: '/event',
     GET_EVENTS: (state: string, date: string) => `/events/${state}?date=${date}`,
-    SEARCH_EVENTS: (state: string) => `/events/search/${state}`,
+    SEARCH_EVENTS: (state: string, date: string) => `/events/search/${state}?date=${date}`,
     GET_EVENT: (id:number) => `/event/${id}`,
     JOIN_EVENT: '/event/join',
     GET_JOINED_EVENTS: (id: number) => `/events/joined/${id}`,
@@ -21,9 +21,11 @@ export const APIURL = {
     GET_USER_EMISSION: (id: number) => `/carbon/emission/user/${id}`,
     GET_PARTICIPANTS: (id: number) => `/event/${id}/participants`,
     GET_USER_ACHIEVEMENTS: (id: number)=> `/achievements/${id}`,
+    GET_ACHIEVEMENTS: `/achievements`,
     ACHIEVEMENT_SHOWN: (id: number) => `/achievement/${id}`,
     FIRST_LOGIN_UPDATE: (id: number) => `/user/login/update/${id}`,
-    GET_USER: (id: number) => `/user/${id}`
+    GET_USER: (id: number) => `/user/${id}`,
+    ADD_USER_ACHIEVEMENTS: (id: number) => `/achievements/add/${id}`
 }
 
 export const ROUTERURL = {
@@ -35,6 +37,7 @@ export const ROUTERURL = {
     EVENTS: 'events',
     EVENT_DETAILS: 'events/details',
     MY_EVENTS: 'events/my',
+    MY_ACHIEVEMENTS: 'achievements/my',
     RECYCLING: 'recycling',
     CARBON: 'carbondating',
 }

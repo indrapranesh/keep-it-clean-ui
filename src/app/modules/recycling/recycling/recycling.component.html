@@ -5,7 +5,7 @@
         </p>
     </div>
     <div class="container">
-        <div class="d-flex justify-center flex-column align-center pt-100">
+        <div class="d-flex justify-center align-center pt-100">
             <div class="location-input">
                 <kendo-autocomplete
                     [filterable]="true"
@@ -18,17 +18,18 @@
                 >
                 </kendo-autocomplete>
             </div>
-            <div class="pt-3">
-                <p class="m-0 grey-text text-uppercase font-italic font-size-medium">or</p>
-            </div>
-            <div class="p-3 d-flex align-center cursor-pointer" (click)="accessLocation()">
+            <div class="pl-2 d-flex align-center cursor-pointer" (click)="accessLocation()">
                 <img src="assets/icons/gps.svg" class="gps-icon" />
-                <p class="m-0 secondary-text font-bold pl-2">Use my current location</p>
             </div>
-
-            <button kendoButton class="k-primary mt-3" (click)="findRecyclingCenters()" >Find nearest centers</button>
+            <button kendoButton class="k-primary ml-3" (click)="findRecyclingCenters()" icon="search"></button>
         </div>
-        <app-centers-list [centers]="recyclingCenters"></app-centers-list>
+        <div class="pt-5 d-flex justify-center">
+            <p *ngIf="!isLoading" class="m-0 font-size-xl font-semibold grey-text">
+                <span>{{recyclingCenters?.length}}</span>
+                centers found</p>
+            <kendo-loader *ngIf="isLoading" type="converging-spinner"></kendo-loader>
+        </div>
+        <app-centers-list [centers]="recyclingCenters" (navigate)="navigate($event)"></app-centers-list>
     </div>
     
 </div>

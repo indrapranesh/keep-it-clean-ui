@@ -24,6 +24,7 @@ import { ExportParticipantsComponent } from './export-participants/export-partic
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PagerModule } from '@progress/kendo-angular-pager';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TreeViewModule,
     ExcelExportModule,
     PopupModule,
-    SharedModule
+    SharedModule,
+    PagerModule
   ],
   providers: [
   ]

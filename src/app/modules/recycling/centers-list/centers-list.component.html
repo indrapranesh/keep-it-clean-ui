@@ -17,7 +17,9 @@
                                 </div>
                             </kendo-card-body>
                             <kendo-card-actions [layout]="'end'">
-                                <button kendoButton class="k-button k-primary">Get Directions</button>
+                                <button kendoButton class="k-button k-primary"
+                                (click)="getDirections(center)"
+                                >Get Directions</button>
                             </kendo-card-actions>
                         </div>
                     </kendo-card>

@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       "path": '/laws'
     },
     {
-      "text": 'Recycling',
+      "text": 'Recycling Centers',
       "path": '/recycling'
     },
     {
@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit {
     }, {
         text: 'Logout',
         route: ROUTERURL.LOGOUT
+  },{
+    text: 'My Achievements',
+    route: ROUTERURL.MY_ACHIEVEMENTS
   }];
 
   constructor(public router: Router, 

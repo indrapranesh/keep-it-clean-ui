@@ -12,6 +12,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CentersListComponent } from './centers-list/centers-list.component';
 import { NgxStarsModule } from 'ngx-stars';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NgxStarsModule } from 'ngx-stars';
     LabelModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxStarsModule
+    NgxStarsModule,
+    IndicatorsModule
   ]
 })
 export class RecyclingModule { }

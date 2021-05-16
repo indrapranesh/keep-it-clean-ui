@@ -16,6 +16,7 @@ export class EventsComponent implements OnInit, OnDestroy {
   searchKey = '';
   sort = sort;
   selectedSort = sort[0];
+  count;
 
   constructor(private dialogService: DialogService,
     private eventService: EventService,
@@ -41,7 +42,8 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.eventService.state = res.address.state;
         this.eventService.getEvents(res.address.state);
       }
-    })
+    });
+    this.eventService.eventsCount.asObservable().subscribe((res) => this.count = res);
     this.eventService.getEventsObservable().subscribe((res) => {
       this.events = res;
     })

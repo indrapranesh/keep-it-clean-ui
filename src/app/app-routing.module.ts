@@ -33,6 +33,11 @@ const routes: Routes = [
             import('./modules/carbon-footprint/carbon-footprint.module').then((m) => m.CarbonFootprintModule),
   },
   {
+    path: 'achievements',
+    loadChildren: () => 
+            import('./modules/achievement/achievement.module').then((m) => m.AchievementModule),
+  },
+  {
     path: 'account',
     loadChildren: () => 
             import('./modules/session/session.module').then((m) => m.SessionModule),

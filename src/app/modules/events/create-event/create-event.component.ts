@@ -175,6 +175,7 @@ export class CreateEventComponent implements OnInit {
         animation: { type: 'fade', duration: 300 },
         position: { horizontal: 'center', vertical: 'bottom' },
       });
+      this.eventService.getEvents(this.eventService.state);
       this.isLoading = false;
     }, (err) => {
       this.dialog.close();

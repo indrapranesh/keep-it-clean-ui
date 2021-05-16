@@ -11,6 +11,7 @@ export class EventService {
 
   eventTypes = [];
   events: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  eventsCount = new BehaviorSubject<number>(0)
   state = '';
 
   constructor(private http: HttpClient) { }
@@ -25,15 +26,17 @@ export class EventService {
     });
   }
 
-  getEvents(state: string) {
-    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS(state,new Date().toISOString())}`).subscribe((res: any)=> {
+  getEvents(state: string, page: number = 0) {
+    let params = new HttpParams().set('page', page.toString());
+    this.http.get(`${BASE_URL}${APIURL.GET_EVENTS(state,new Date().toISOString())}`, {params: params}).subscribe((res: any)=> {
       this.events.next(res.rows);
+      this.eventsCount.next(res.count);
     });
   }
 
   searchEvents(state:string, key: string) {
     let params = new HttpParams().set('key', key);
-    this.http.get(`${BASE_URL}${APIURL.SEARCH_EVENTS(state)}`, {params: params}).subscribe((res: any)=> {
+    this.http.get(`${BASE_URL}${APIURL.SEARCH_EVENTS(state, new Date().toISOString())}`, {params: params}).subscribe((res: any)=> {
       this.events.next(res.rows);
     });
   }

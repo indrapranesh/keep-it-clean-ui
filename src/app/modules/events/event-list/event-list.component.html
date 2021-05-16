@@ -38,4 +38,14 @@
             </div>
         </kendo-card>
     </div>
+    <div class="d-flex justify-center">
+        <kendo-datapager
+        [style.width.px]="width"
+        [pageSize]="pageSize"
+        [skip]="skip"
+        [total]="total"
+        (pageChange)="onPageChange($event)"
+        >
+        </kendo-datapager>
+    </div>
 </div>
