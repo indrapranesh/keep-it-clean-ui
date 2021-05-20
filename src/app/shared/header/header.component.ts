@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, EventEmitter, HostListener, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { DropDownButtonComponent } from '@progress/kendo-angular-buttons';
 import { ROUTERURL } from 'src/app/constants/url.constants';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { SessionService } from 'src/app/services/session.service';
 import { UserService } from 'src/app/services/user.service';
-import { isAuthenticated } from 'src/app/utils/token.utils';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,16 @@ import { isAuthenticated } from 'src/app/utils/token.utils';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() toggleDrawer = new EventEmitter<any>()
+
+  @ViewChild("profileDrop", { static: true }) public profileDrop: DropDownButtonComponent;
   isAuthenticated: boolean = false;
   avatarName = '';
+  isSmallDevice = false;
+  popupSettings = {
+    animate: true,
+    align: 'left'
+  }
   navItems = [
     {
       "text": 'Laws',
@@ -45,9 +54,12 @@ export class HeaderComponent implements OnInit {
     route: ROUTERURL.MY_ACHIEVEMENTS
   }];
 
+
   constructor(public router: Router, 
     private userService: UserService,
+    private breakPointService: BreakpointService,
     private sessionService: SessionService) { 
+      
   }
 
   profileNavigate(event) {
@@ -58,7 +70,21 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([ROUTERURL.LANDING]);
   }
 
+  open(event) {
+    console.log(event);
+    this.profileDrop.toggle(true);
+  }
+
+  close() {
+    this.profileDrop.toggle(false);
+  }
+
+  toggleNav() {
+    this.toggleDrawer.emit();
+  }
+
   ngOnInit(): void {
+    this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallDevice = res)
     this.sessionService.isAuthenticated.asObservable().subscribe(
       (res) => {
         this.isAuthenticated = res;

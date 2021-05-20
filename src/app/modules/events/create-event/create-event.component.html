@@ -1,6 +1,6 @@
 <div class="ev-create-event">
     <div class="form-wrapper d-flex justify-center">
-        <div class="example">
+        <div class="create-event-stepper">
             <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
             <form class="k-form" [formGroup]="eventForm">
                 <div *ngIf="currentStep === 0" >

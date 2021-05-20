@@ -1,9 +1,9 @@
 <ng-container [formGroup]="homeForm">
     <fieldset class="k-form-fieldset">
         <div class="row pb-3">
-            <kendo-label class="col-md-3" [for]="electricity" text="Electricity"></kendo-label>
-            <kendo-textbox class="col-md-6 p-0" formControlName="electricity" #electricity></kendo-textbox>
-            <kendo-dropdownlist class="col-md-3" [data]="units.electricity.units" formControlName="electricityUnit"
+            <kendo-label class="col-md-3 col-12 p-0" [for]="electricity" text="Electricity"></kendo-label>
+            <kendo-textbox class="col-md-6 col-6 p-0" formControlName="electricity" #electricity></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-6" [data]="units.electricity.units" formControlName="electricityUnit"
                 required></kendo-dropdownlist>
         </div>
         <div class="row pb-3">

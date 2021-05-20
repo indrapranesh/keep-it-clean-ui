@@ -7,7 +7,7 @@
             <button kendoButton class="k-primary" icon="arrow-left"></button>
         </div> -->
         <div class="row pt-50">
-            <div class="col-lg-8">
+            <div class="col-lg-8 description">
                 <h3>{{event?.name}}</h3>
                 <p class="m-0 font-size-large pt-3">
                     {{event?.description}}
@@ -21,7 +21,7 @@
                     <p class="m-0 pl-3">{{event?.address}}</p>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 info">
                 <kendo-card class="p-3" width="100%">
                     <div class="p-3 d-flex flex-column">
                         <ng-container *ngIf="currentUser?.id !== event?.creator && !joined">
@@ -56,13 +56,13 @@
         </div>
 
         <div class="row pt-50">
-            <div class="col-lg-8">
+            <div class="col-lg-8 map">
                 <agm-map class="map w-100" [latitude]="latitude" [longitude]="longitude" [zoom]="15" [usePanning]="true">
                     <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false"
                     ></agm-marker>
                 </agm-map>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 social-share">
                 <kendo-card class="p-5 w-100 h-100">
                     <p class="font-size-large font-semibold text-center">Invite your friends to join!</p>
                     <p class="text-center">Make more volunteers and clean up the world.</p>

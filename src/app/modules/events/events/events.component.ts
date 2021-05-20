@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogService } from '@progress/kendo-angular-dialog';
 import { sort } from 'src/app/constants/events.constants';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { EventService } from 'src/app/services/event.service';
 import { UserService } from 'src/app/services/user.service';
 import { CreateEventComponent } from '../create-event/create-event.component';
@@ -17,16 +18,18 @@ export class EventsComponent implements OnInit, OnDestroy {
   sort = sort;
   selectedSort = sort[0];
   count;
+  isSmallScreen = false;
 
   constructor(private dialogService: DialogService,
     private eventService: EventService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private breakPointService: BreakpointService) { }
 
   host() {
     const createEvent = this.dialogService.open({
       title: 'Host an Event',
       content: CreateEventComponent,
-      width: '50%'
+      width: this.isSmallScreen ? '90%' : '50%'
     })
   }
 
@@ -46,7 +49,8 @@ export class EventsComponent implements OnInit, OnDestroy {
     this.eventService.eventsCount.asObservable().subscribe((res) => this.count = res);
     this.eventService.getEventsObservable().subscribe((res) => {
       this.events = res;
-    })
+    });
+    this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallScreen = res);
   }
 
   ngOnInit(): void {

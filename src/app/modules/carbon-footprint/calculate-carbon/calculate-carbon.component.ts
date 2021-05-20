@@ -83,7 +83,7 @@ export class CalculateCarbonComponent implements OnInit {
         validate: this.shouldValidate
     },
     {
-        label: 'Public Transport',
+        label: 'Public',
         isValid: this.isStepValid,
         validate: this.shouldValidate
     },

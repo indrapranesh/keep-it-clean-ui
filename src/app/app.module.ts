@@ -24,21 +24,7 @@ import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 import { PagerModule } from '@progress/kendo-angular-pager';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { LayoutModule } from '@progress/kendo-angular-layout';
 
 @NgModule({
   declarations: [
@@ -57,6 +43,7 @@ import { PagerModule } from '@progress/kendo-angular-pager';
     NotificationModule,
     DialogsModule,
     DropDownsModule,
+    LayoutModule,
     AgmCoreModule.forRoot({
       libraries: ['places'],
       apiKey: 'AIzaSyB5mVZs-PAwUyj9ueH7UMh6U3tK2XtrSo0'

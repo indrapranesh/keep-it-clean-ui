@@ -1,0 +1,22 @@
+@import '../assets/styles/variables';
+
+.drawer-container {
+    .sidenav-header {
+        height: 60px;
+        border-bottom: 1px solid $light-border;
+        img {
+            height: 20px;
+        }
+    }
+    .sidenav-item {
+        .nav-text {
+            font-size: 1rem;
+        }
+    }
+    .active {
+        background: $primary-color;
+        .nav-text {
+            color: $white-color;
+        }
+    }
+}

@@ -11,16 +11,18 @@
             <div class="cf-records">
                 <p class="font-size-xl grey-text">Your Carbon Emission Records</p>
             </div>
-            <kendo-chart class="pt-3">
-                <kendo-chart-series>
-                  <kendo-chart-series-item
-                     *ngFor="let item of emissionData"
-                      [data]="item.data" [name]="item.year"
-                      field="value" categoryField="month"
-                      type="line">
-                  </kendo-chart-series-item>
-                </kendo-chart-series>
-              </kendo-chart>
+            <kendo-card [width]="'100%'">
+                <kendo-chart class="p-3">
+                    <kendo-chart-series>
+                      <kendo-chart-series-item
+                         *ngFor="let item of emissionData"
+                          [data]="item.data" [name]="item.year"
+                          field="value" categoryField="month"
+                          type="line">
+                      </kendo-chart-series-item>
+                    </kendo-chart-series>
+                  </kendo-chart>
+            </kendo-card>
         </div>
     </div>
 </div>

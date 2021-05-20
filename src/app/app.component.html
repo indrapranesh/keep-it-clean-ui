@@ -1,4 +1,29 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<ng-container *ngIf="!isSmallDevice">
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+</ng-container>
+<ng-container *ngIf="isSmallDevice">
+    <kendo-drawer-container class="drawer-container">
+        <kendo-drawer #drawer
+        mode="overlay">
+            <ng-template kendoDrawerTemplate>
+                <div class="sidenav-header d-flex justify-center align-center mb-1">
+                    <img src="assets/icons/ev-logo.svg">
+                </div>
+                <ng-container *ngFor="let nav of navItems">
+                    <div class="w-100 sidenav-item p-3" routerLinkActive="active" (click)="drawer.toggle()"  [routerLink]="nav.path">
+                        <p class="nav-text m-0 grey-text" >
+                            {{nav?.text}}</p>
+                    </div>
+                </ng-container>
+            </ng-template>
+        </kendo-drawer>
+    
+          <kendo-drawer-content>
+            <app-header (toggleDrawer)="drawer.toggle()"></app-header>
+            <router-outlet></router-outlet>
+          </kendo-drawer-content>
+    </kendo-drawer-container>
+</ng-container>
 
 <div kendoDialogContainer></div>

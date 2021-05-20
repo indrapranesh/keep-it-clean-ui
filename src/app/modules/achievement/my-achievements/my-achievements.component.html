@@ -5,7 +5,7 @@
     </div>
     <div class="container pt-100">
         <div class="row">
-            <div class="col-md-4 pb-50 cards-wrapper" *ngFor="let reward of achievements">
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-50 cards-wrapper d-flex justify-center" *ngFor="let reward of achievements">
                 <kendo-card class="p-3 card" [class.disabled]="!reward.present">
                     <div class="d-flex flex-column align-center" >
                         <p class="font-size-xl grey-text font-semibold">{{reward?.name}}</p>

@@ -3,12 +3,12 @@
         <p class="text-uppercase font-size-medium font-semibold">No Upcoming events</p>
     </div>
     <div *ngFor="let event of events" class="pb-4">
-        <kendo-card class="event-card cursor-pointer" (click)="openDetails(event)" [width]="'100%'">
+        <kendo-card class="event-card cursor-pointer overflow-hidden" (click)="openDetails(event)" [width]="'100%'">
             <div class="row">
                 <div class="col-lg-8 description">
                     <div class="p-3">
                         <h4>{{event?.name}}</h4>
-                        <p class="font-light truncate">{{event?.description}}</p>
+                        <p class="font-light truncate font-italic">{{event?.description}}</p>
                         <div class="font-light d-flex align-center">
                             <span class="k-icon k-i-marker-pin"></span>
                             <p class="m-0 pl-3">{{event?.address}}</p>

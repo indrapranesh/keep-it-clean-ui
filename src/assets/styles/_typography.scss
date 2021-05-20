@@ -4,6 +4,10 @@
 	color: $grey-text;
 }
 
+.light-text {
+	color: $light-text !important;
+}
+
 .primary-text {
 	color: $primary-color
 }
@@ -61,7 +65,7 @@ $fontExtraBold: 800;
 }
 
 .font-size-medium {
-	font-size: 0.875rem;
+	font-size: 0.8rem;
 }
 
 .font-size-large {
@@ -95,7 +99,6 @@ $fontExtraBold: 800;
 .truncate {
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
 }
 
 .font-light {

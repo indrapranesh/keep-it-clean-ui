@@ -1,21 +1,26 @@
 <div class="ev-header">
-    <kendo-appbar class="ev-appbar container">
-        <kendo-appbar-section>
+    <kendo-appbar class="ev-appbar pb-0" [class.container]="!isSmallDevice">
+        <kendo-appbar-section class="pb-2" *ngIf="isSmallDevice" (click)="toggleNav()">
+            <img src="assets/icons/hamburger.svg" />
+        </kendo-appbar-section>
+        <kendo-appbar-section class="pb-2">
             <img (click)="navLanding()" class="logo" src="assets/icons/ev-logo.svg" />
         </kendo-appbar-section>
         <kendo-appbar-spacer></kendo-appbar-spacer>
-        <kendo-appbar-section>
-            <kendo-menu [items]="navItems">
-                <ng-template kendoMenuItemLinkTemplate let-item="item" let-index="index">
-                    <a class="ml-3 font-semibold" [kendoMenuItemLink]="index" routerLinkActive="active" [routerLink]="item.path">
-                        {{ item.text }}
-                    </a>
-                </ng-template>
-            </kendo-menu>
-            <button class="ml-3" kendoButton size="large" [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
-            <kendo-dropdownbutton [data]="profileNav" class="profile-dropdown" (itemClick)="profileNavigate($event)" *ngIf="isAuthenticated">  
-                <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer"></kendo-avatar>
-            </kendo-dropdownbutton>
-        </kendo-appbar-section>
+        <ng-container *ngIf="!isSmallDevice">
+            <kendo-appbar-section class="h-100">
+                <kendo-menu class="h-100" [items]="navItems">
+                    <ng-template kendoMenuItemLinkTemplate let-item="item" let-index="index">
+                        <a class="ml-3 font-semibold light-text text-uppercase font-size-medium" [kendoMenuItemLink]="index" routerLinkActive="active" [routerLink]="item.path">
+                            {{ item.text }}
+                        </a>
+                    </ng-template>
+                </kendo-menu>
+                <button class="ml-3" kendoButton size="large" [primary]="true" routerLink="/account" *ngIf="!isAuthenticated">Login</button>
+                <kendo-dropdownbutton [popupSettings]="popupSettings" [data]="profileNav" class="profile-dropdown ml-3 h-100" (itemClick)="profileNavigate($event)" *ngIf="isAuthenticated">  
+                    <kendo-avatar [shape]="'circle'" [initials]="avatarName" class="cursor-pointer"></kendo-avatar>
+                </kendo-dropdownbutton>
+            </kendo-appbar-section>
+        </ng-container>
     </kendo-appbar>
 </div>

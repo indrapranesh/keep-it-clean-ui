@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from '@progress/kendo-angular-dialog';
+import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { CarbonFootprintService } from 'src/app/services/carbon-footprint.service';
 import { UserService } from 'src/app/services/user.service';
 import { CalculateCarbonComponent } from '../calculate-carbon/calculate-carbon.component';
@@ -13,18 +14,19 @@ export class CarbonFootprintComponent implements OnInit {
 
   carbonData: any;
   emissionData = [];
+  isSmallScreen = false;
 
   constructor(private dialogService: DialogService,
   private carbonService: CarbonFootprintService,
-  private userService: UserService) { 
-    
+  private userService: UserService,
+  private breakPointService: BreakpointService) { 
   }
 
   openCalculator() {
     let dialogRef = this.dialogService.open({
       title: 'Calculate your carbon footprint',
       content: CalculateCarbonComponent,
-      width: '50%'
+      width: this.isSmallScreen ? '90%' : '70%'
     });
     const data = dialogRef.content.instance;
     data.carbonData = this.carbonData;
@@ -39,6 +41,7 @@ export class CarbonFootprintComponent implements OnInit {
     this.carbonService.chartData.asObservable().subscribe((res) => {
       this.emissionData = res;
     });
+    this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallScreen = res);
   }
 
   ngOnInit(): void {

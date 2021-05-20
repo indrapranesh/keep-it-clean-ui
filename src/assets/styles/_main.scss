@@ -1,7 +1,8 @@
 @import './variables';
 @import './utils';
 @import './typography';
-
+@import './overrides';
+@import './responsive';
 // @import '~@progress/kendo-theme-default/scss/textbox/_index.scss';
 // @import '~@progress/kendo-theme-default/scss/input/_index.scss';
 // @import '~@progress/kendo-theme-default/scss/textarea/_index.scss';
@@ -18,6 +19,7 @@
 // @import '~@progress/kendo-theme-default/scss/card/_index.scss'; 
 // @import '~@progress/kendo-theme-default/scss/treeview/_index.scss'; 
 // @import '~@progress/kendo-theme-default/scss/avatar/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/drawer/_index.scss'; 
 @import '~@progress/kendo-theme-default/scss/all.scss';
 
 body {
@@ -37,8 +39,10 @@ body {
 
 .hero-wrapper {
     background: $hero-gradient;
+    padding: 1rem;
     height: 150px;
     .header {
+        text-align: center;
         color: $white-color;
         font-size: 1.5rem;
     }
