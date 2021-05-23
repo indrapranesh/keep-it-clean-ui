@@ -67,10 +67,7 @@ export class AppComponent implements OnInit {
       this.isAuthenticated = res;
       console.log(res)
       this.navItems = [];
-      this.navItems = [{
-        "text": 'Laws',
-        "path": '/laws'
-      },
+      this.navItems = [
       {
         "text": 'Recycling Centers',
         "path": '/recycling'
@@ -82,6 +79,10 @@ export class AppComponent implements OnInit {
       {
         "text": 'Carbon Footprint',
         "path": '/carbondating'
+      },
+      {
+        "text": 'US Local Laws',
+        "path": '/laws'
       }
       ]
       if(res) {

@@ -1,10 +1,9 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PageChangeEvent } from '@progress/kendo-angular-dropdowns/dist/es2015/common/models/page-change-event';
 import * as momenttz from 'moment-timezone';
 import { ROUTERURL } from 'src/app/constants/url.constants';
 import { EventService } from 'src/app/services/event.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-event-list',

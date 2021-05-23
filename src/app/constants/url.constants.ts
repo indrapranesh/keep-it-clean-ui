@@ -25,7 +25,8 @@ export const APIURL = {
     ACHIEVEMENT_SHOWN: (id: number) => `/achievement/${id}`,
     FIRST_LOGIN_UPDATE: (id: number) => `/user/login/update/${id}`,
     GET_USER: (id: number) => `/user/${id}`,
-    ADD_USER_ACHIEVEMENTS: (id: number) => `/achievements/add/${id}`
+    ADD_USER_ACHIEVEMENTS: (id: number) => `/achievements/add/${id}`,
+    GET_LAWS: `/laws`
 }
 
 export const ROUTERURL = {

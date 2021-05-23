@@ -27,6 +27,16 @@ export class RecyclingComponent implements OnInit {
     private notificationService: NotificationService,
     private userService: UserService,
     private cdr:ChangeDetectorRef) { 
+      this.userService.currentUser.asObservable().subscribe((res) => {
+        console.log(res);
+        if(res?.id) {
+          console.log(JSON.parse(res.address.latitude));
+          this.location = res.address.address;
+          this.latitude = JSON.parse(res.address.latitude);
+          this.longitude = JSON.parse(res.address.longitude);
+          this.findRecyclingCenters();
+        }
+      })
   }
 
   findRecyclingCenters() {
@@ -130,17 +140,6 @@ export class RecyclingComponent implements OnInit {
     window.open(url);
   }
 
-  ngOnInit(): void {
-    this.userService.currentUser.asObservable().subscribe((res) => {
-      console.log(res);
-      if(res?.id) {
-        console.log(JSON.parse(res.address.latitude));
-        this.location = res.address.address;
-        this.latitude = JSON.parse(res.address.latitude);
-        this.longitude = JSON.parse(res.address.longitude);
-        this.findRecyclingCenters();
-      }
-    })
-  }
+  ngOnInit(): void {}
 
 }

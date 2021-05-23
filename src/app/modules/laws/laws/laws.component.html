@@ -1,1 +1,17 @@
-<p>laws works!</p>
+<div class="ev-laws">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl">
+            United States Statewise Recycling Laws
+        </p>
+    </div>
+    <div class="container pt-50">
+        <kendo-grid [kendoGridBinding]="laws">
+            <kendo-grid-column field="state" title="State" ></kendo-grid-column>
+            <kendo-grid-column field="reference" title="Recycling Laws" >
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <a [href]="dataItem.reference" target="_blank">{{dataItem.reference}}</a>
+                  </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </div>
+</div>

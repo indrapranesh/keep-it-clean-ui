@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LawService } from 'src/app/services/law.service';
 
 @Component({
   selector: 'app-laws',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LawsComponent implements OnInit {
 
-  constructor() { }
+  public laws: any[] = [];
+
+  constructor(private lawService: LawService) { }
 
   ngOnInit(): void {
+    this.lawService.getLaws().subscribe((res: any)=> this.laws = res)
   }
 
 }

@@ -43,4 +43,22 @@
             width: 275px !important;
         }
     }
+    .ev-landing {
+        .achievements {
+            p {
+                font-size: 1rem;
+            }
+            img {
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ev-landing {
+        .landing-des {
+            padding-top: 1.5rem;
+        }
+    }
 }

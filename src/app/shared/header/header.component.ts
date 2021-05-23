@@ -26,10 +26,6 @@ export class HeaderComponent implements OnInit {
   }
   navItems = [
     {
-      "text": 'Laws',
-      "path": '/laws'
-    },
-    {
       "text": 'Recycling Centers',
       "path": '/recycling'
     },
@@ -41,17 +37,22 @@ export class HeaderComponent implements OnInit {
       "text": 'Carbon Footprint',
       "path": '/carbondating'
     },
+    {
+      "text": 'US Local Laws',
+      "path": '/laws'
+    }
   ];
 
   profileNav: Array<any> = [{
     text: 'My Events',
     route: ROUTERURL.MY_EVENTS
-    }, {
-        text: 'Logout',
-        route: ROUTERURL.LOGOUT
-  },{
+    },{
     text: 'My Achievements',
     route: ROUTERURL.MY_ACHIEVEMENTS
+  },
+  {
+    text: 'Logout',
+    route: ROUTERURL.LOGOUT
   }];
 
 

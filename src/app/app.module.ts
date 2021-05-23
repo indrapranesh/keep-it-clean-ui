@@ -25,6 +25,8 @@ import { PopupModule } from '@progress/kendo-angular-popup';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
 import { PagerModule } from '@progress/kendo-angular-pager';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
     PopupModule,
     ScrollViewModule,
     PagerModule,
+    GridModule,
   ],
   providers: [
     PlacePredictionService

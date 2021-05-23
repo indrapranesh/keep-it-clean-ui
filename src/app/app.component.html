@@ -1,6 +1,7 @@
 <ng-container *ngIf="!isSmallDevice">
     <app-header></app-header>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
 </ng-container>
 <ng-container *ngIf="isSmallDevice">
     <kendo-drawer-container class="drawer-container">
@@ -22,6 +23,7 @@
           <kendo-drawer-content>
             <app-header (toggleDrawer)="drawer.toggle()"></app-header>
             <router-outlet></router-outlet>
+            <app-footer></app-footer>
           </kendo-drawer-content>
     </kendo-drawer-container>
 </ng-container>

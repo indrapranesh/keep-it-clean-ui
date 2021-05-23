@@ -13,11 +13,12 @@ import { AutoCompleteModule } from '@progress/kendo-angular-dropdowns';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AchievementComponent } from './achievement/achievement.component';
 import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, AddressSearchComponent, AchievementComponent],
+  declarations: [HeaderComponent, AddressSearchComponent, AchievementComponent, FooterComponent],
   imports: [
     CommonModule,
     AppBarModule,
@@ -36,7 +37,8 @@ import { ScrollViewModule } from '@progress/kendo-angular-scrollview';
   exports: [
     HeaderComponent,
     AddressSearchComponent,
-    AchievementComponent
+    AchievementComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

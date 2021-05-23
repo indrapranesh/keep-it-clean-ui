@@ -12,8 +12,16 @@
 	color: $primary-color
 }
 
+.white-text {
+	color: $white-color;
+}
+
 .secondary-text {
 	color: $secondary-color;
+}
+
+.gradient-text {
+	color: $hero-gradient;
 }
 
 $header-1: 2.5rem;

@@ -1,0 +1,9 @@
+@import '../../../assets/styles/variables';
+
+.ev-footer {
+    height: 40px;
+    border-top: 1px solid $light-border;
+    img {
+        height: 13px;
+    }
+}
