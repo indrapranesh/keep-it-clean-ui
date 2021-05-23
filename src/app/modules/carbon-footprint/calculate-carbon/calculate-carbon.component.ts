@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DialogRef } from '@progress/kendo-angular-dialog';
 import { StepperComponent } from '@progress/kendo-angular-layout';
@@ -11,11 +11,12 @@ import { month } from '../../../constants/date.constants';
 @Component({
   selector: 'app-calculate-carbon',
   templateUrl: './calculate-carbon.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./calculate-carbon.component.scss']
 })
-export class CalculateCarbonComponent implements OnInit {
+export class CalculateCarbonComponent implements OnInit, OnChanges {
 
-  @Input() public carbonData: Array<any>;
+  carbonData: Array<any>;
   public units = units;
   carbonEmission: number = 0;
   months = month;
@@ -119,6 +120,10 @@ export class CalculateCarbonComponent implements OnInit {
       return groups[index];
   }
 
+  ngOnChanges() {
+    console.log(this.carbonData)
+  }
+
   constructor(private carbonService: CarbonFootprintService,
     private userService: UserService,
     public dialog : DialogRef) { 
@@ -203,6 +208,10 @@ export class CalculateCarbonComponent implements OnInit {
 
   ngOnInit(): void {
     this.generateMonths();
+    this.carbonService.getEmissionCategories().subscribe(
+      (res: any) => {
+        this.carbonData = res;
+    });
   }
 
 }

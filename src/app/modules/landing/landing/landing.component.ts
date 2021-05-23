@@ -1,4 +1,5 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DialogCloseResult, DialogService } from '@progress/kendo-angular-dialog';
 import { AchievementService } from 'src/app/services/achievement.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,7 +16,8 @@ export class LandingComponent implements OnInit {
 
   constructor(private dialogService: DialogService,
     private achievementService: AchievementService,
-    private userService: UserService) { 
+    private userService: UserService,
+    public router: Router) { 
   }
 
   showAchievements() {

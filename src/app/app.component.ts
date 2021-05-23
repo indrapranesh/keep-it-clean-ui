@@ -56,13 +56,13 @@ export class AppComponent implements OnInit {
       this.breakPointService.isMobileScreen.next(false);
     } else {
       this.breakPointService.isMobileScreen.next(true);
-      this.breakPointService.isTabScreen.next(false);
+      this.breakPointService.isTabScreen.next(true);
     }
     
   }
 
   ngOnInit() {
-    this.breakPointService.isMobileScreen.subscribe(res => this.isSmallDevice = res)
+    this.breakPointService.isTabScreen.subscribe(res => this.isSmallDevice = res)
     this.sessionService.isAuthenticated.asObservable().subscribe((res) => {
       this.isAuthenticated = res;
       console.log(res)
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
       },
       {
         "text": 'Carbon Footprint',
-        "path": '/carbondating'
+        "path": '/carbon'
       },
       {
         "text": 'US Local Laws',

@@ -15,7 +15,7 @@
                     <p class="light-text">
                         Host events, join events on cleaning up public places or planting tress.
                     </p>
-                    <button class="k-button k-primary ml-3" >View Events</button>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/events'])">View Events</button>
                 </div>
             </div>
             <div class="col-md-6 order-md-2 order-1">
@@ -25,17 +25,17 @@
         </div>
 
         <div class="row recycling pt-50">
-            <div class="col-md-6 order-md-2 order-1">
+            <div class="col-md-6 order-md-first order-xs-last">
                 <div class=" w-100 recycling-img">
                 </div>
             </div>
-            <div class="col-md-6 order-md-1 order-2 landing-des">
+            <div class="col-md-6 order-md-last order-xs-first landing-des">
                 <div class="d-flex flex-column justify-center align-center h-100">
                     <p class="font-size-xl font-semibold grey-text"><span class="primary-text">Trash</span> zones full?</p>
                     <p class="light-text">
                         Find your nearest recycling centeres and get directions.
                     </p>
-                    <button class="k-button k-primary ml-3" >View Centers</button>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/recycling'])">View Centers</button>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     <p class="light-text">
                         Calculate and monitor carbon emissions in your day-to-day life.
                     </p>
-                    <button class="k-button k-primary ml-3" >Calculate Now</button>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/carbon'])">Calculate Now</button>
                 </div>
             </div>
             <div class="col-md-6 order-md-2 order-1">
@@ -58,18 +58,18 @@
         </div>
 
         <div class="row laws pt-50">
-            <div class="col-md-6 order-md-2 order-1">
+            <div class="col-md-6 order-md-1 order-xs-2">
                 <div class=" w-100 laws-img">
                 </div>
             </div>
-            <div class="col-md-6 order-md-1 order-2 landing-des">
+            <div class="col-md-6 order-md-2 order-xs-1 landing-des">
                 <div class="d-flex flex-column justify-center align-center h-100">
                     <p class="font-size-xl font-semibold grey-text">Local 
                         <span class="primary-text">recycling</span> laws</p>
                     <p class="light-text">
                         Are you in United States? Find reference to your state's recycling laws.
                     </p>
-                    <button class="k-button k-primary ml-3" >Find now</button>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/laws'])">Find now</button>
                 </div>
             </div>
         </div>

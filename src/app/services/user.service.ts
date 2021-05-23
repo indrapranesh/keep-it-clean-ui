@@ -26,4 +26,14 @@ export class UserService {
   getUserDetails(userId: number) {
     return this.http.get(`${BASE_URL}${APIURL.GET_USER(userId)}`);
   }
+
+  refreshCurrentUser() {
+    this.getUserDetails(this.getCurrentUser().id).subscribe(
+      (res: any) => {
+        if(res.id) {
+          this.currentUser.next(res);
+        }
+      }
+    );
+  }
 }

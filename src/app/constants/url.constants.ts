@@ -1,4 +1,6 @@
-export const BASE_URL = 'http://localhost:3000/dev/api'
+import * as env from '../../assets/environment.json';
+
+export const BASE_URL = env.server_endpoint + '/api'
 
 export const APIURL = {
     LOGIN: '/login',
@@ -40,5 +42,5 @@ export const ROUTERURL = {
     MY_EVENTS: 'events/my',
     MY_ACHIEVEMENTS: 'achievements/my',
     RECYCLING: 'recycling',
-    CARBON: 'carbondating',
+    CARBON: 'carbon',
 }

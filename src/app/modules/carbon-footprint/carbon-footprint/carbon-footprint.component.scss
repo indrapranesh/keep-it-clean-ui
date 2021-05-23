@@ -1,3 +1,9 @@
 .ev-footprint {
     min-height: calc(100vh - 100px);
+    .k-dialog-wrapper {
+        .k-dialog {
+            height: 100%;
+            overflow: auto;
+        }
+    }
 }

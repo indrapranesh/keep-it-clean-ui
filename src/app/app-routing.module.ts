@@ -27,7 +27,7 @@ const routes: Routes = [
             import('./modules/events/events.module').then((m) => m.EventsModule),
   },
   {
-    path: 'carbondating',
+    path: 'carbon',
     pathMatch: 'full',
     loadChildren: () => 
             import('./modules/carbon-footprint/carbon-footprint.module').then((m) => m.CarbonFootprintModule),

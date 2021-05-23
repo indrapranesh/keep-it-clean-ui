@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       "text": 'Carbon Footprint',
-      "path": '/carbondating'
+      "path": '/carbon'
     },
     {
       "text": 'US Local Laws',
@@ -85,7 +85,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallDevice = res)
+    this.breakPointService.isTabScreen.asObservable().subscribe(res => this.isSmallDevice = res)
     this.sessionService.isAuthenticated.asObservable().subscribe(
       (res) => {
         this.isAuthenticated = res;

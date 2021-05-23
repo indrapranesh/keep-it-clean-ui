@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DialogService } from '@progress/kendo-angular-dialog';
 import { BreakpointService } from 'src/app/services/breakpoint.service';
 import { CarbonFootprintService } from 'src/app/services/carbon-footprint.service';
@@ -8,6 +8,7 @@ import { CalculateCarbonComponent } from '../calculate-carbon/calculate-carbon.c
 @Component({
   selector: 'app-carbon-footprint',
   templateUrl: './carbon-footprint.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./carbon-footprint.component.scss']
 })
 export class CarbonFootprintComponent implements OnInit {
@@ -19,7 +20,8 @@ export class CarbonFootprintComponent implements OnInit {
   constructor(private dialogService: DialogService,
   private carbonService: CarbonFootprintService,
   private userService: UserService,
-  private breakPointService: BreakpointService) { 
+  private breakPointService: BreakpointService,
+  private cdr: ChangeDetectorRef) { 
   }
 
   openCalculator() {
@@ -28,15 +30,9 @@ export class CarbonFootprintComponent implements OnInit {
       content: CalculateCarbonComponent,
       width: this.isSmallScreen ? '90%' : '70%'
     });
-    const data = dialogRef.content.instance;
-    data.carbonData = this.carbonData;
   }
 
   init() {
-    this.carbonService.getEmissionCategories().subscribe(
-      (res) => {
-        this.carbonData = res;
-    });
     this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
     this.carbonService.chartData.asObservable().subscribe((res) => {
       this.emissionData = res;

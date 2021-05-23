@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './landing/landing.component';
 import { DialogModule, SharedModule } from '@progress/kendo-angular-dialog';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,7 +13,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
     CommonModule,
     DialogModule,
     SharedModule,
-    ButtonsModule
+    ButtonsModule,
+    RouterModule
   ]
 })
 export class LandingModule { }
