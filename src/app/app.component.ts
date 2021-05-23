@@ -51,10 +51,10 @@ export class AppComponent implements OnInit {
   }
 
   smallDeviceCheck(width) {
-    if(width >= 768) {
+    if(width >= 768 && width <= 991) {
       this.breakPointService.isTabScreen.next(true);
       this.breakPointService.isMobileScreen.next(false);
-    } else {
+    } else if(width < 768) {
       this.breakPointService.isMobileScreen.next(true);
       this.breakPointService.isTabScreen.next(true);
     }
