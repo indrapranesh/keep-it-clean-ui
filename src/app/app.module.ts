@@ -48,7 +48,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
     LayoutModule,
     AgmCoreModule.forRoot({
       libraries: ['places'],
-      apiKey: 'AIzaSyB5mVZs-PAwUyj9ueH7UMh6U3tK2XtrSo0'
+      apiKey: <apikey>
     }),
     DateInputsModule,
     TreeViewModule,
