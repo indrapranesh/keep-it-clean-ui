@@ -1,0 +1,74 @@
+@media (max-width: 576px) {
+    .ev-events {
+        .events {
+            .events-search {
+                flex-direction: column;
+                .search-wrapper {
+                    width: 100% !important;
+                }
+                .events-count {
+                    p {
+                        padding-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+    .ev-recycling {
+        .location-input {
+            .address {
+                width: 220px !important;
+            }
+        }
+    }
+
+    .ev-login {
+        .k-form {
+            width: 250px !important;
+        }
+    }
+
+    .ev-signup {
+        padding: 2rem;
+    }
+   
+}
+
+@media (max-width: 991px) {
+    .ev-event-details {
+        .info,.social-share {
+            padding-top: 50px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .ev-create-event {
+        .create-event-stepper {
+            width: 275px;
+        }
+    }
+    .ev-cf {
+        .stepper-wrapper {
+            width: 275px !important;
+        }
+    }
+    .ev-landing {
+        .achievements {
+            p {
+                font-size: 1rem;
+            }
+            img {
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ev-landing {
+        .landing-des {
+            padding-top: 1.5rem;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.ev-cf {
+    .stepper-wrapper {
+        display: table;
+        margin: auto;
+        width: 450px;
+        .results {
+            .months-dd {
+                width: 100px;
+            }
+        }
+    }
+    .k-stepper {
+        align-self: center;
+    }
+    .k-step {
+        pointer-events: none;
+    }
+    .k-button.prev {
+        margin-right: 16px;
+    }
+    .k-form-separator {
+        margin-top: 40px;
+    }
+    .k-buttons-end {
+        justify-content: space-between;
+        align-content: center;
+    }
+    .page {
+        align-self: center;
+    }
+}

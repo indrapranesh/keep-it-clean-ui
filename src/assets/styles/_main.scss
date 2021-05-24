@@ -1,0 +1,49 @@
+@import './variables';
+@import './utils';
+@import './typography';
+@import './overrides';
+@import './responsive';
+// @import '~@progress/kendo-theme-default/scss/textbox/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/input/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/textarea/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/notification/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/appbar/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/menu/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/button/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/dialog/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/dialog/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/stepper/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/dropdownlist/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/autocomplete/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/datetime/_index.scss';
+// @import '~@progress/kendo-theme-default/scss/card/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/treeview/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/avatar/_index.scss'; 
+// @import '~@progress/kendo-theme-default/scss/drawer/_index.scss'; 
+@import '~@progress/kendo-theme-default/scss/all.scss';
+
+body {
+    margin: 0;
+    font-family: 'Roboto';
+}
+
+.facebook-icon {
+    color: #4267B2;
+    font-size: 28px;
+}
+
+.twitter-icon {
+    color: #1DA1F2;
+    font-size: 28px;
+}
+
+.hero-wrapper {
+    background: $hero-gradient;
+    padding: 1rem;
+    height: 150px;
+    .header {
+        text-align: center;
+        color: $white-color;
+        font-size: 1.5rem;
+    }
+}

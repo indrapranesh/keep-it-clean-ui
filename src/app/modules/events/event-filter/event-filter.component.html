@@ -1,0 +1,13 @@
+<div class="ev-events-filter p-3">
+     <div class="filters">
+        <div class="pb-3" *ngFor="let filter of filters">
+            <p class="font-bold font-size-medium">{{filter?.name}}</p>
+            <kendo-treeview
+                  [nodes]="filter.values"
+                  textField="text"
+                  [kendoTreeViewCheckable]="filter.selection"
+                  (checkedChange)="handleCheck($event)"
+            ></kendo-treeview>
+        </div>
+     </div>
+</div>

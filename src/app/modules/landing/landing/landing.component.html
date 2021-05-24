@@ -1,0 +1,82 @@
+<div class="ev-landing">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl font-semibold">Welcome to Ecoville</p>
+    </div>
+    <div class="container pt-50">
+        <div class="d-flex flex-column justify-center align-center">
+            <p class="font-size-xxl grey-text font-semibold text-center">Make earth a better place to <span class="primary-text">live</span></p>
+            <span class="k-icon k-i-arrow-chevron-down"></span>
+        </div>
+        <div class="row events pt-50">
+            <div class="col-md-6 order-md-1 order-2 landing-des">
+                <div class="d-flex flex-column justify-center align-center h-100">
+                    <p class="font-size-xl font-semibold grey-text">Join your 
+                        <span class="primary-text">hands</span> and clean up the city</p>
+                    <p class="light-text">
+                        Host events, join events on cleaning up public places or planting tress.
+                    </p>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/events'])">View Events</button>
+                </div>
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <div class=" w-100 events-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="row recycling pt-50">
+            <div class="col-md-6 order-md-first order-xs-last">
+                <div class=" w-100 recycling-img">
+                </div>
+            </div>
+            <div class="col-md-6 order-md-last order-xs-first landing-des">
+                <div class="d-flex flex-column justify-center align-center h-100">
+                    <p class="font-size-xl font-semibold grey-text"><span class="primary-text">Trash</span> zones full?</p>
+                    <p class="light-text">
+                        Find your nearest recycling centeres and get directions.
+                    </p>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/recycling'])">View Centers</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row carbon pt-50">
+            <div class="col-md-6 order-md-1 order-2 landing-des">
+                <div class="d-flex flex-column justify-center align-center h-100">
+                    <p class="font-size-xl font-semibold grey-text">Carbon
+                        <span class="primary-text">footprint</span> </p>
+                    <p class="light-text">
+                        Calculate and monitor carbon emissions in your day-to-day life.
+                    </p>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/carbon'])">Calculate Now</button>
+                </div>
+            </div>
+            <div class="col-md-6 order-md-2 order-1">
+                <div class=" w-100 carbon-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="row laws pt-50">
+            <div class="col-md-6 order-md-1 order-xs-2">
+                <div class=" w-100 laws-img">
+                </div>
+            </div>
+            <div class="col-md-6 order-md-2 order-xs-1 landing-des">
+                <div class="d-flex flex-column justify-center align-center h-100">
+                    <p class="font-size-xl font-semibold grey-text">Local 
+                        <span class="primary-text">recycling</span> laws</p>
+                    <p class="light-text">
+                        Are you in United States? Find reference to your state's recycling laws.
+                    </p>
+                    <button class="k-button k-primary ml-3" (click)="router.navigate(['/laws'])">Find now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-100"></div>
+    <div class="d-flex align-center justify-center achievements p-3">
+        <p class="header font-size-xl font-semibold">Get <span class="primary-text">rewarded</span> for taking part in events</p>
+        <img src="assets/images/reward.jpeg">
+    </div> 
+</div>

@@ -1,0 +1,29 @@
+<div class="ev-recycling-centers pt-100 container">
+    <div class="row">
+        <ng-container *ngFor="let center of centers">
+            <div class="pb-4 col-lg-4">
+                <kendo-card [width]="'100%'" class="cards">
+                        <img kendoCardMedia [src]="center?.photo" (error)="onImgError($event)" />
+                        <div class="k-vbox">
+                            <kendo-card-header>
+                                <h5 kendoCardTitle>{{center?.name}}</h5>
+                                <p class="pt-1 m-0 grey-text">{{center?.opening_hours?.isOpen() ? 'Open' : 'Closed'}}</p>
+                            </kendo-card-header>
+                            <kendo-card-body>
+                                <p><strong>Address:</strong> {{center?.vicinity}}</p>
+                                <div class="d-flex align-center">
+                                    <ngx-stars class="pt-1" [readonly]="false" [color]="'#FFDF00'" [size]="1" [initialStars]="center?.rating" [customStarIcons]="heartIcons"></ngx-stars>
+                                    <p class="m-0 pl-3">({{center?.user_ratings_total}})</p>
+                                </div>
+                            </kendo-card-body>
+                            <kendo-card-actions [layout]="'end'">
+                                <button kendoButton class="k-button k-primary"
+                                (click)="getDirections(center)"
+                                >Get Directions</button>
+                            </kendo-card-actions>
+                        </div>
+                    </kendo-card>
+            </div>
+        </ng-container>
+    </div>
+</div>

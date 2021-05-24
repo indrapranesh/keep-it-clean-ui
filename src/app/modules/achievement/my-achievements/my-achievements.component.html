@@ -1,0 +1,19 @@
+<div class="ev-my-achievement">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl font-semibold">My Achievements
+        </p>
+    </div>
+    <div class="container pt-100">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-50 cards-wrapper d-flex justify-center" *ngFor="let reward of achievements">
+                <kendo-card class="p-3 card" [class.disabled]="!reward.present">
+                    <div class="d-flex flex-column align-center" >
+                        <p class="font-size-xl grey-text font-semibold">{{reward?.name}}</p>
+                        <img class="pt-2" [src]="reward?.logoUrl">
+                        <p class="font-size-medium pt-3 font-light font-italic">{{reward?.description}}</p>
+                    </div>
+                </kendo-card>
+            </div>
+        </div>
+    </div>
+</div>

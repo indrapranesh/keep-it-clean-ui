@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/variables';
+
+.ev-my-events {
+    min-height: calc(100vh - 100px);
+    .hero-wrapper {
+        background: $bg-blue;
+        height: 150px;
+        .header {
+            color: $text-main;
+        }
+    }
+    .container {
+        kendo-buttongroup {
+            button:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}

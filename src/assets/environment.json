@@ -1,0 +1,8 @@
+{
+"server_endpoint":"",
+"cloudfront_endpoint":"d142f6gul28ax5.cloudfront.net",
+"userpool_id":"",
+"userpool_client_id":"",
+"origin_bucket":"keep-it-clean-ui-origin",
+"idp_id":""
+}

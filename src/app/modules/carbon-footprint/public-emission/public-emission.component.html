@@ -1,0 +1,46 @@
+<ng-container [formGroup]="publicTransportForm">
+    <fieldset class="k-form-fieldset">
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="bus" text="Bus"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="bus" #bus></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="busUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="localTrain" text="Local Train"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="localTrain" #localTrain></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="localTrainUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="coach" text="Coach"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="coach" #coach></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="coachUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="train" text="Train"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="train" #train></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="trainUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="tram" text="Tram"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="tram" #tram></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="tramUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="subway" text="Subway"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="subway" #subway></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="subwayUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3" [for]="taxi" text="Taxi"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="taxi" #taxi></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.distance.units" formControlName="taxiUnit"
+                required></kendo-dropdownlist>
+        </div>
+    </fieldset>
+</ng-container>

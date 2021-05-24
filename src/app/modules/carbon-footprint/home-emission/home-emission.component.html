@@ -1,0 +1,28 @@
+<ng-container [formGroup]="homeForm">
+    <fieldset class="k-form-fieldset">
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3 col-12 p-0" [for]="electricity" text="Electricity"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="electricity" #electricity></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.electricity.units" formControlName="electricityUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3 col-12 p-0" [for]="naturalGas" text="Natural Gas"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="naturalGas" #naturalGas></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.gas.units" formControlName="naturalGasUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3 col-12 p-0" [for]="LPG" text="LPG"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="LPG" #LPG ></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.liquid.units" formControlName="LPGUnit"
+                required></kendo-dropdownlist>
+        </div>
+        <div class="row pb-3 no-gutters">
+            <kendo-label class="col-md-3 col-12 p-0" [for]="coal" text="Coal"></kendo-label>
+            <kendo-textbox class="col-md-6 col-5 p-0" formControlName="coal" #coal ></kendo-textbox>
+            <kendo-dropdownlist class="col-md-3 col-5 pl-3" [data]="units.solid.units" formControlName="coalUnit"
+                required></kendo-dropdownlist>
+        </div>
+    </fieldset>
+</ng-container>

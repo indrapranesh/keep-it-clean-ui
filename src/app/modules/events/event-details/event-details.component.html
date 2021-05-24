@@ -1,0 +1,88 @@
+<div class="ev-event-details">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl font-bold">{{event?.name}}</p>
+    </div>
+    <div class="d-flex align-center justify-center" *ngIf="isLoading">
+        <kendo-loader class="pt-5" *ngIf="isLoading"  type="converging-spinner"></kendo-loader>
+    </div>
+    <ng-container *ngIf="!isLoading">
+        <div class="details-wrapper container pt-50">
+            <!-- <div class=" d-flex align-center cursor-pointer back-link" (click)="back()">
+                <button kendoButton class="k-primary" icon="arrow-left"></button>
+            </div> -->
+            <div class="row pt-50">
+                <div class="col-lg-8 description">
+                    <h3>{{event?.name}}</h3>
+                    <p class="m-0 font-size-large pt-3">
+                        {{event?.description}}
+                    </p>
+                    <div class="font-light d-flex align-center pt-3">
+                        <img class="phone-icon" src="assets/icons/phone.svg" />
+                        <p class="m-0 pl-3">{{event?.phoneNumber}}</p>
+                    </div>
+                    <div class="font-light d-flex align-center pt-3">
+                        <span class="k-icon k-i-marker-pin"></span>
+                        <p class="m-0 pl-3">{{event?.address}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 info">
+                    <kendo-card class="p-3" width="100%">
+                        <div class="p-3 d-flex flex-column">
+                            <ng-container *ngIf="currentUser?.id !== event?.creator && !joined">
+                                <button kendoButton class="k-primary join-btn w-100 mb-3" size="large" (click)="join()">
+                                    <kendo-loader *ngIf="isJoining" [size]="'medium'"></kendo-loader>Join Event</button>
+                            </ng-container>
+                            <ng-container *ngIf="currentUser?.id == event?.creator">
+                                <button kendoButton class="k-secondary join-btn w-100 mb-3 cursor-default" size="large" disabled>You created this event</button>
+                                <app-export-participants [participants]="participants"[eventName]="event?.name"></app-export-participants>
+                            </ng-container>
+                            <ng-container *ngIf="currentUser?.id !== event?.creator && joined">
+                                <button kendoButton class="k-secondary join-btn w-100 mb-3 cursor-default" size="large" disabled>Joined</button>
+                            </ng-container>
+                            <div class="d-flex align-center pb-3">
+                                <span class="k-icon k-i-globe"></span>
+                                <p class="pl-3 m-0 font-semibold">{{event?.type?.type}}</p>
+                            </div>
+                            <div class="d-flex align-center pb-3">
+                                <span class="k-icon k-i-calendar"></span>
+                                <p class="pl-3 m-0 font-semibold">{{getDate(event?.startTime)}}</p>
+                            </div>
+                            <div class="d-flex align-center pb-3">
+                                <span class="k-icon k-i-clock"></span>
+                                <p class="pl-3 m-0 font-semibold">{{getTime(event?.startTime, event?.endTime)}}</p>
+                            </div>
+                            <div class="d-flex align-center pb-3">
+                                <p class="m-0 font-bold">{{event?.participants?.length}}</p>
+                                <p class="pl-3 m-0">Participant<span *ngIf="event?.participants?.length > 1">s</span></p>
+                            </div>
+                        </div>
+                    </kendo-card>
+                </div>
+            </div>
+    
+            <div class="row pt-50">
+                <div class="col-lg-8 map">
+                    <agm-map class="map w-100" [latitude]="latitude" [longitude]="longitude" [zoom]="15" [usePanning]="true">
+                        <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false"
+                        ></agm-marker>
+                    </agm-map>
+                </div>
+                <div class="col-lg-4 social-share">
+                    <kendo-card class="p-5 w-100 h-100">
+                        <p class="font-size-large font-semibold text-center">Invite your friends to join!</p>
+                        <p class="text-center">Make more volunteers and clean up the world.</p>
+                        <div class="share-buttons d-flex justify-center pt-3">
+                            <a class="share-icon twitter-share-button"
+                                [href]="twitterShare" target="_blank">
+                                <span class="k-icon k-i-twitter twitter-icon"></span>
+                            </a>
+                            <a class="share-icon fb-xfbml-parse-ignore pl-3" target="_blank" [href]="facebookShare">
+                                <span class="k-icon k-i-facebook-box facebook-icon"></span>
+                            </a>
+                        </div>
+                    </kendo-card>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

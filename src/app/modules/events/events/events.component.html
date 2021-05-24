@@ -1,0 +1,29 @@
+<div class="ev-events pb-50">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl"><span class="font-bold"> Upcoming Events </span>
+        </p>
+        <button class="k-button k-primary ml-3" (click)="host()">Host an Event</button>
+    </div>
+    <div class="events container">
+        <div class="event-list pt-50">
+            <div class="event-list-wrapper">
+                    <div class="events-search d-flex align-center justify-between w-100 pb-50">
+                        <div class="search-wrapper">
+                            <kendo-textbox class="w-100 search-input" [(ngModel)]="searchKey"
+                                placeholder="Search Events"  required (keyup.enter)="search()">
+                                <ng-template kendoTextBoxPrefixTemplate>
+                                    <button kendoButton look="clear" [icon]="'zoom'"></button>
+                                </ng-template>
+                            </kendo-textbox>
+                        </div>
+                        <div class="events-count">
+                            <p class="font-size-large font-semibold grey-text m-0" *ngIf="count>0"> {{count}} Event<span *ngIf="count>1">s</span> found</p>
+                        </div>
+                    </div>
+                <app-event-list [events]="events" [showPager]="'true'"></app-event-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div kendoDialogContainer></div>

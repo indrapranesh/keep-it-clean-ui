@@ -1,0 +1,18 @@
+<div class="ev-login p-5 w-100">
+    <div class="d-flex flex-column justify-center align-center">
+        <p class="m-0 font-size-large grey-text font-semibold">Verify <span class="primary-text">Email</span></p>
+        <form class="k-form pt-3" [formGroup]="verifyForm">
+            <fieldset class="k-form-fieldset">
+                <kendo-formfield>
+                    <kendo-label [for]="code" text="Code"></kendo-label>
+                    <kendo-textbox class="w-100" formControlName="code" #code required></kendo-textbox>
+                </kendo-formfield>
+
+                <div class="k-form-buttons">
+                    <button kendoButton class="k-button k-primary" (click)="verify()">
+                        <kendo-loader *ngIf="isLoading" [size]="'medium'"></kendo-loader>Verify</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

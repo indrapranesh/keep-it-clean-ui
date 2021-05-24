@@ -1,0 +1,30 @@
+@import '../../../../assets/styles/variables';
+
+.ev-event-details {
+    min-height: calc(100vh - 100px);
+    .details-wrapper {
+        .back-link {
+            p:hover {
+                text-decoration: underline;
+            }
+            .back-icon {
+                color: $primary-color;
+            }
+        }
+        .join-btn {
+            min-width: 100px;
+            height: 35px;
+        }
+        .map {
+            height: 300px;
+            width: 100%;
+        }
+        .phone-icon {
+            height: 16px;
+        }
+
+        .share-icon:hover {
+            text-decoration: none;
+        }
+    }
+}

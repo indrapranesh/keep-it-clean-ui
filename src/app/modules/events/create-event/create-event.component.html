@@ -1,0 +1,75 @@
+<div class="ev-create-event">
+    <div class="form-wrapper d-flex justify-center">
+        <div class="create-event-stepper">
+            <kendo-stepper #stepper [steps]="steps" stepType="full" [(currentStep)]="currentStep"> </kendo-stepper>
+            <form class="k-form" [formGroup]="eventForm">
+                <div *ngIf="currentStep === 0" >
+                    <ng-container [formGroup]="currentGroup">
+                        <fieldset class="k-form-fieldset">
+                            <kendo-formfield>
+                                <kendo-label [for]="name" text="Name"></kendo-label>
+                                <kendo-textbox formControlName="name" #name required></kendo-textbox>
+                            </kendo-formfield>
+
+                            <div class="pt-3">
+                                <kendo-label [for]="type" text="Event Type"></kendo-label>
+                                <kendo-dropdownlist [data]="eventService.eventTypes" formControlName="eventType"
+                                    [textField]="'type'"
+                                    [valueField]="'id'"
+                                    required #type
+                                    placeholder="Choose Event Type"
+                                ></kendo-dropdownlist>
+                            </div>
+
+                            <kendo-formfield>
+                                <kendo-label [for]="phoneNumber" text="Phone Number"></kendo-label>
+                                <kendo-textbox formControlName="phoneNumber" #phoneNumber required></kendo-textbox>
+                            </kendo-formfield>
+            
+                            <kendo-formfield>
+                                <kendo-label [for]="description" text="Description"></kendo-label>
+                                <kendo-textarea #description formControlName="description" placeholder="What is the event about..." required></kendo-textarea>
+                            </kendo-formfield>
+                        </fieldset>
+                    </ng-container>
+                </div>
+                <div *ngIf="currentStep === 1" class="mt-3">
+                    <app-address-search [addressForm]="currentGroup"></app-address-search>
+                </div>
+                <div *ngIf="currentStep === 2" class="mt-3">
+                    <ng-container [formGroup]="currentGroup">
+                        <div class="timings-wrapper d-flex align-center justify-center flex-column">
+                            <kendo-formfield>
+                                <kendo-label [for]="date" text="Date"></kendo-label>
+                                <kendo-datepicker #data [formControlName]="'day'" [min]="fromMin" [max]="fromMax" (valueChange)="dateChange($event)">
+                                </kendo-datepicker>
+                            </kendo-formfield>
+                            <kendo-formfield>
+                                <kendo-label [for]="fromTime" text="Start Time"></kendo-label>
+                                <kendo-timepicker #fromTime [formControlName]="'startTime'" [min]="fromTime1" [max]="toTime" (valueChange)="timeChange($event, 'start')">
+                                </kendo-timepicker>
+                            </kendo-formfield>
+                            <kendo-formfield>
+                                <kendo-label [for]="toTime" text="End Time"></kendo-label>
+                                <kendo-timepicker #toTime [formControlName]="'endTime'" [min]="fromTime2" [max]="toTime" (valueChange)="timeChange($event, 'end')">
+                                </kendo-timepicker>
+                            </kendo-formfield>
+                        </div>
+                    </ng-container>
+                </div>
+                <span class="k-form-separator"></span>
+
+                <div class="k-form-buttons k-buttons-end">
+                    <span class="page">Step {{ currentStep + 1 }} of 3</span>
+                    <div>
+                        <button class="k-button prev" *ngIf="currentStep !== 0" (click)="prev()">Previous</button>
+                        <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 2">Next</button>
+                        <button class="k-button k-primary" (click)="createEvent()" [disabled]="!eventForm.valid" *ngIf="currentStep === 2">
+                            <kendo-loader *ngIf="isLoading" [size]="'small'"></kendo-loader>
+                            Create Event</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

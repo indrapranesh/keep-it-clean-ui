@@ -1,0 +1,35 @@
+<div class="ev-recycling">
+    <div class="hero-wrapper d-flex flex-column align-center justify-center w-100">
+        <p class="header font-size-xl"><span class="font-regular">Find your nearest </span>
+            <span class="font-bold">recycling center</span>
+        </p>
+    </div>
+    <div class="container">
+        <div class="d-flex justify-center align-center pt-50">
+            <div class="location-input">
+                <kendo-autocomplete
+                    [filterable]="true"
+                    [data]="addressSearchResults"
+                    [placeholder]="'Enter your address'"
+                    class="address"
+                    (filterChange)="search($event)"
+                    [value]="location"
+                    (valueChange)="getLocation($event)"
+                >
+                </kendo-autocomplete>
+            </div>
+            <div class="pl-2 d-flex align-center cursor-pointer" (click)="accessLocation()">
+                <img src="assets/icons/gps.svg" class="gps-icon" />
+            </div>
+            <button kendoButton class="k-primary ml-3" (click)="findRecyclingCenters()" icon="search"></button>
+        </div>
+        <div class="pt-5 d-flex justify-center flex-column align-center">
+            <p *ngIf="!isLoading" class="m-0 font-size-xl font-semibold grey-text">
+                <span>{{recyclingCenters?.length}}</span>
+                centers found</p>
+            <kendo-loader class="pt-5" *ngIf="isLoading"  type="converging-spinner"></kendo-loader>
+        </div>
+        <app-centers-list [centers]="recyclingCenters" (navigate)="navigate($event)"></app-centers-list>
+    </div>
+    
+</div>

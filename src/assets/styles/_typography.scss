@@ -1,0 +1,142 @@
+@import './variables';
+
+.grey-text {
+	color: $grey-text;
+}
+
+.light-text {
+	color: $light-text !important;
+}
+
+.primary-text {
+	color: $primary-color
+}
+
+.white-text {
+	color: $white-color;
+}
+
+.secondary-text {
+	color: $secondary-color;
+}
+
+.gradient-text {
+	color: $hero-gradient;
+}
+
+$header-1: 2.5rem;
+$header-2: 2rem;
+$header-3: 1.75rem;
+$header-4: 1.5rem;
+$header-5: 1.20rem;
+$header-6: 1rem;
+
+$fontSizeXL: 3rem;
+
+$subtitle-1: 0.875rem;
+$subtitle-2: 0.813rem;
+
+$body-1: 0.75rem;
+$body-2: 0.875rem;
+
+$caption: 0.688rem;
+$subCaption: 0.563rem;
+
+$fontLight: 300;
+$fontRegular: 400;
+$fontLightBold: 500;
+$fontSemiBold: 600;
+$fontBold: 700;
+$fontExtraBold: 800;
+
+// Text alignments
+
+.text-left {
+	text-align: left !important;
+}
+
+.text-right {
+	text-align: right !important;
+}
+
+.text-center {
+	text-align: center !important;
+}
+
+/* Font Sizes */
+.font-size-tiny {
+	font-size: 0.55rem;
+}
+
+.font-size-small {
+	font-size: 0.75rem;
+}
+
+.font-size-medium {
+	font-size: 0.8rem;
+}
+
+.font-size-large {
+	font-size: 1.125rem;
+}
+
+.font-size-xl {
+	font-size: 1.375rem;
+}
+
+.font-size-xxl {
+	font-size: 1.875rem;
+}
+
+.font-size-2 {
+	font-size: 2rem;
+}
+
+.font-size-3 {
+	font-size: 3rem;
+}
+
+.font-size-xxxl {
+    font-size: 6rem;
+}
+
+.font-size-4xl {
+    font-size: 7rem;
+}
+
+.truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.font-light {
+	font-weight: $fontLight;
+}
+
+.font-regular {
+	font-weight: $fontRegular;
+}
+
+.font-light-bold {
+	font-weight: $fontLightBold;
+}
+
+.font-bold {
+	font-weight: $fontBold;
+}
+
+.font-semibold {
+	font-weight: $fontSemiBold;
+}
+
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+.letter-spacing {
+	letter-spacing: 1.68px;
+}
+
+.font-italic {
+	font-style: italic;
+}

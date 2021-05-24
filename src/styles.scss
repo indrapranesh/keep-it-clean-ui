@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/variables';
+@import 'assets/styles/main';
+
+body {
+    color: $grey-text !important;
+    ::selection {
+        color: $white-color !important;
+        background: $primary-color !important;
+    }
+}

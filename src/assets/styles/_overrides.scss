@@ -1,0 +1,41 @@
+@import './variables';
+
+// avatar 
+.k-avatar-circle {
+    border: none;
+    outline: none;
+    background: $hero-gradient;
+    color: $white-color;
+}
+
+// Pop up
+.k-animation-container {
+    kendo-button-list {
+        .k-list {
+            .k-item {
+                padding: 8px 12px;
+                box-shadow: none;
+            }
+            .k-item:hover {
+                background: $white-color;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.k-dialog-wrapper {
+    .k-dialog {
+        overflow: auto;
+    }
+}
+
+.k-button {
+    .k-loader-primary {
+        color: $white-color !important;
+    }
+}
+
+.k-loader-primary {
+    color: $primary-color !important;
+}

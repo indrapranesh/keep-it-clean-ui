@@ -1,0 +1,60 @@
+$white-color: #ffffff;
+$black-color: #000000;
+$primary-color: #ff7c6c;
+$secondary-color: #47bce4;
+$text-main: #2A2642;
+$bg-blue: #f4f9ff;
+$grey-text: #424242;
+$light-text: #4d4f52;
+$light-border: #edf1f2;
+$hero-gradient: linear-gradient(90deg, hsla(7, 100%, 71%, 1) 0%, hsla(195, 74%, 59%, 1) 100%);
+$gradient-overlay: linear-gradient(90deg, hsla(7, 100%, 71%, 0.3) 0%, hsla(195, 74%, 59%, 0.3) 100%);
+
+// theme
+$light: #ffffff;
+$accent: #000000;
+
+
+// button
+$primary-button-bg: #ff7c6c;
+$primary-button-border-color: #ff7c6c;
+
+
+// notification
+$notification-text: #ffffff;
+$notification-bg: #47bce4;
+$notification-border: #47bce4;
+$notification-font-size: 14px;
+
+// dialog
+
+$dialog-titlebar-bg: #ff7c6c;
+
+// stepper
+
+$stepper-indicator-current-text: $white-color;
+$stepper-indicator-current-bg: $secondary-color;
+$stepper-indicator-current-border: $secondary-color;
+
+$stepper-indicator-current-hover-text: $white-color;
+$stepper-indicator-current-hover-bg: $secondary-color;
+$stepper-indicator-current-hover-border: $secondary-color;
+
+$stepper-indicator-done-text: $white-color;
+$stepper-indicator-done-bg: $secondary-color;
+$stepper-indicator-done-border: $secondary-color;
+
+$stepper-progressbar-fill-bg: $secondary-color;
+
+// dropdown
+// $dropdownlist-hovered-text: $white-color;
+// $dropdownlist-bg: $primary-color;
+// $dropdownlist-border: $primary-color;
+// $dropdownlist-gradient: $primary-color;
+
+// button group
+
+$button-selected-text: $white-color;
+$button-selected-bg: $primary-color;
+$button-selected-border: $primary-color;
+$button-selected-gradient: $primary-color;
