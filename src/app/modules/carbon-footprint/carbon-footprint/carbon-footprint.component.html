@@ -11,6 +11,9 @@
             <div class="cf-records">
                 <p class="font-size-xl grey-text">Your Carbon Emission Records</p>
             </div>
+            <div *ngIf="emissionData.length == 0">
+                <p class="font-size-medium text-center grey-text text-uppercase">no record found</p>
+            </div>
             <kendo-card [width]="'100%'">
                 <kendo-chart class="p-3">
                     <kendo-chart-series>

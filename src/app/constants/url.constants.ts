@@ -1,6 +1,6 @@
 import * as env from '../../assets/environment.json';
 
-export const BASE_URL = env.server_endpoint + '/api'
+export const BASE_URL = 'https://mbnbn2afhj.execute-api.us-east-1.amazonaws.com/dev' + '/api'
 
 export const APIURL = {
     LOGIN: '/login',

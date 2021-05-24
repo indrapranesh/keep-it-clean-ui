@@ -23,11 +23,11 @@
             </div>
             <button kendoButton class="k-primary ml-3" (click)="findRecyclingCenters()" icon="search"></button>
         </div>
-        <div class="pt-5 d-flex justify-center">
+        <div class="pt-5 d-flex justify-center flex-column align-center">
             <p *ngIf="!isLoading" class="m-0 font-size-xl font-semibold grey-text">
                 <span>{{recyclingCenters?.length}}</span>
                 centers found</p>
-            <kendo-loader *ngIf="isLoading" type="converging-spinner"></kendo-loader>
+            <kendo-loader class="pt-5" *ngIf="isLoading"  type="converging-spinner"></kendo-loader>
         </div>
         <app-centers-list [centers]="recyclingCenters" (navigate)="navigate($event)"></app-centers-list>
     </div>

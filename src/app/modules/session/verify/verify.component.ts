@@ -13,6 +13,7 @@ import { SessionService } from 'src/app/services/session.service';
 export class VerifyComponent implements OnInit {
 
   verifyForm: FormGroup;
+  isLoading = false;
 
   constructor(private formBuilder: FormBuilder,
     private sessionService: SessionService,
@@ -25,12 +26,14 @@ export class VerifyComponent implements OnInit {
   }
 
   verify() {
+    this.isLoading = true;
     let body: IVerifyReq = {
       cognitoUserName: this.route.snapshot.queryParams['username'],
       code: this.verifyForm.get('code').value
     }
     this.sessionService.verifyUser(body).subscribe(
       (res) => {
+        this.isLoading = false;
         this.router.navigate(['account/login']);
         this.notificationService.show({content: 'Signup successful. Please login to continue',
           animation: { type: 'fade', duration: 800 },
@@ -38,6 +41,7 @@ export class VerifyComponent implements OnInit {
         })
       },
       (err) => {
+        this.isLoading = false;
         console.log('Code not matched');
         this.notificationService.show({content: err.error.errorMessage,
           animation: { type: 'fade', duration: 800 },

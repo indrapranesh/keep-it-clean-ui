@@ -25,10 +25,12 @@ import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PagerModule } from '@progress/kendo-angular-pager';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { EventsSkeletonComponent } from './events-skeleton/events-skeleton.component';
 
 
 @NgModule({
-  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent, EventDetailsComponent, MyEventsComponent, ExportParticipantsComponent ],
+  declarations: [EventsComponent, EventFilterComponent, EventListComponent, CreateEventComponent, EventDetailsComponent, MyEventsComponent, ExportParticipantsComponent, EventsSkeletonComponent ],
   imports: [
     CommonModule,
     EventsRoutingModule,
@@ -50,7 +52,8 @@ import { PagerModule } from '@progress/kendo-angular-pager';
     ExcelExportModule,
     PopupModule,
     SharedModule,
-    PagerModule
+    PagerModule,
+    IndicatorsModule
   ],
   providers: [
   ]

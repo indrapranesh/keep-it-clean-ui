@@ -12,6 +12,7 @@ export class EventService {
   eventTypes = [];
   events: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
   eventsCount = new BehaviorSubject<number>(0)
+  isEventsLoading = new BehaviorSubject<boolean>(false);
   state = '';
 
   constructor(private http: HttpClient) { }
@@ -27,10 +28,15 @@ export class EventService {
   }
 
   getEvents(state: string, page: number = 0) {
+    this.isEventsLoading.next(true);
     let params = new HttpParams().set('page', page.toString());
     this.http.get(`${BASE_URL}${APIURL.GET_EVENTS(state,new Date().toISOString())}`, {params: params}).subscribe((res: any)=> {
       this.events.next(res.rows);
       this.eventsCount.next(res.count);
+      this.isEventsLoading.next(false);
+    },
+    (err) => {
+      this.isEventsLoading.next(false);
     });
   }
 

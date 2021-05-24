@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, ViewChild
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DialogRef } from '@progress/kendo-angular-dialog';
 import { StepperComponent } from '@progress/kendo-angular-layout';
+import { NotificationService } from '@progress/kendo-angular-notification';
 import { units } from 'src/app/constants/carbon.constants';
 import { UserEmissionReq } from 'src/app/interfaces/carbon.interface';
 import { CarbonFootprintService } from 'src/app/services/carbon-footprint.service';
@@ -21,6 +22,7 @@ export class CalculateCarbonComponent implements OnInit, OnChanges {
   carbonEmission: number = 0;
   months = month;
   currentYear: number;
+  isLoading = false;
 
   public cfForm = new FormGroup({
     home: new FormGroup({
@@ -126,7 +128,8 @@ export class CalculateCarbonComponent implements OnInit, OnChanges {
 
   constructor(private carbonService: CarbonFootprintService,
     private userService: UserService,
-    public dialog : DialogRef) { 
+    public dialog : DialogRef,
+    private notificationService: NotificationService) { 
       this.currentYear = (new Date()).getFullYear();
   }
 
@@ -169,6 +172,7 @@ export class CalculateCarbonComponent implements OnInit, OnChanges {
     if(!this.cfForm.get('resultsForm').value.month) {
       return;
     }
+    this.isLoading = true;
     const date: Date = new Date(new Date().getFullYear(), (this.cfForm.get('resultsForm').value.month.id)-1 , 1,0,0,0);
     console.log(date);
     let body: UserEmissionReq = {
@@ -178,8 +182,25 @@ export class CalculateCarbonComponent implements OnInit, OnChanges {
     console.log(body);
     this.carbonService.addUserCarbonEmission(this.userService.getCurrentUser().id, body).subscribe(
       (res) => {
+        this.isLoading = false;
         console.log('Emission data added');
         this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
+        this.notificationService.show({
+          content: 'Record Added',
+          animation: { type: 'fade', duration: 300 },
+          position: { horizontal: 'center', vertical: 'bottom' },
+        });
+        this.dialog.close();
+        this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
+      },
+      (err) => {
+        this.isLoading = false;
+        this.notificationService.show({
+          content: 'Record Added',
+          animation: { type: 'fade', duration: 300 },
+          position: { horizontal: 'center', vertical: 'bottom' },
+        });
+        this.dialog.close();
       }
     )
   }

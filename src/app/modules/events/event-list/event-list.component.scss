@@ -16,10 +16,13 @@
                 border-left: 1px solid $light-border;
             }
         }
+        .k-icon {
+            color: $light-text;
+        }
     }
     .event-card:hover {
         border: 1px solid $primary-color;
         box-shadow: none;
         //border-left: 5px solid $primary-color;
-    }   
+    } 
 }

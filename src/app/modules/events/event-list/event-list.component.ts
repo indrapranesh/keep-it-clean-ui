@@ -13,7 +13,10 @@ import { EventService } from 'src/app/services/event.service';
 export class EventListComponent implements OnInit {
 
   @Input() events: Array<any>;
+  @Input() showPager: boolean = false;
   timezone = momenttz.tz.guess();
+  skeleton = [1,2,3];
+  isLoading = true;
 
   public pageSize = 10;
   public skip = 0;
@@ -47,6 +50,7 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.eventService.isEventsLoading.subscribe(res=> this.isLoading = res)
   }
 
 }

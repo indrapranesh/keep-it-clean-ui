@@ -20,7 +20,7 @@
                             <p class="font-size-large font-semibold grey-text m-0" *ngIf="count>0"> {{count}} Event<span *ngIf="count>1">s</span> found</p>
                         </div>
                     </div>
-                <app-event-list [events]="events"></app-event-list>
+                <app-event-list [events]="events" [showPager]="'true'"></app-event-list>
             </div>
         </div>
     </div>

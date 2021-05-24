@@ -10,6 +10,7 @@ function generate_config() {
     #echo $outputs
 ​
     service_endpoint=$(echo $outputs | jq --raw-output 'select(.OutputKey == "ServiceEndpoint") | .OutputValue')
+    echo "'$service_endpoint'"
 ​
     outputs=$(aws cloudformation describe-stacks --region $REGION --stack-name $STACK_NAME_2 | jq '.Stacks | .[] |
     .Outputs | .[]')

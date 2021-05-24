@@ -29,3 +29,13 @@
         overflow: auto;
     }
 }
+
+.k-button {
+    .k-loader-primary {
+        color: $white-color !important;
+    }
+}
+
+.k-loader-primary {
+    color: $primary-color !important;
+}

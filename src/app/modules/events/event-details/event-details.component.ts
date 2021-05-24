@@ -20,6 +20,8 @@ export class EventDetailsComponent implements OnInit {
   currentUser;
   joined = false;
   participants = [];
+  isLoading=false;
+  isJoining = false;
 
   latitude: number;
   longitude: number;
@@ -46,6 +48,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   init() {
+    this.isLoading = true;
     this.eventService.getEventById(this.eventId).subscribe((res) => {
       this.event = res;
       this.latitude = parseFloat(this.event.latitude);
@@ -54,7 +57,8 @@ export class EventDetailsComponent implements OnInit {
         if(participant.userId == this.currentUser.id) {
           this.joined = true;
         }
-      })
+      });
+      this.isLoading = false;
     });
     this.eventService.getParticipants(this.eventId).subscribe((res: Array<any>) => {
       let participants = [];
@@ -74,7 +78,9 @@ export class EventDetailsComponent implements OnInit {
       userId: this.currentUser.id,
       eventId: this.eventId
     }
+    this.isJoining = true;
     this.eventService.joinEvent(body).subscribe((res) => {
+      this.isJoining = false;
       this.init();
     })
   }

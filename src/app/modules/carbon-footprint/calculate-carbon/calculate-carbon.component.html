@@ -34,7 +34,9 @@
                                 ></kendo-dropdownlist>
                                 <p class="m-0 pl-3">{{currentYear}}</p>
                             </div>
-                            <button kendoButton class="k-button k-primary mt-3" (click)="addCarbon()">Add CO2 emission to your records</button>
+                            <button kendoButton class="k-button k-primary mt-3" (click)="addCarbon()">Add CO2 emission to your records
+                                <kendo-loader *ngIf="isLoading" [size]="'medium'"></kendo-loader>
+                            </button>
                         </div>
                     </ng-container>
                 </div>

@@ -67,6 +67,7 @@ export class CarbonFootprintService {
       }
     });
     this.chartData.next(chartData);
+    console.log(chartData)
   }
 
   getAllUserEmission(userId: number) {

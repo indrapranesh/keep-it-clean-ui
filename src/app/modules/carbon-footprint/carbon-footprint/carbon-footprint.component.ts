@@ -34,13 +34,17 @@ export class CarbonFootprintComponent implements OnInit {
 
   init() {
     this.carbonService.getAllUserEmission(this.userService.getCurrentUser().id);
-    this.carbonService.chartData.asObservable().subscribe((res) => {
-      this.emissionData = res;
-    });
     this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallScreen = res);
   }
 
   ngOnInit(): void {
+    this.carbonService.chartData.subscribe((res) => {
+      this.emissionData = res;
+      if(res[0]) {
+        this.cdr.detectChanges();
+      }
+      console.log(this.emissionData)
+    });
     this.init();
   }
 

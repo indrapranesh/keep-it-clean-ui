@@ -17,6 +17,7 @@ import { ROUTERURL } from 'src/app/constants/url.constants';
 export class LoginComponent implements OnInit, AfterViewInit {
 
   loginForm: FormGroup;
+  isLoading = false;
   @ViewChild('password') public textbox: TextBoxComponent;
 
   constructor(private formBuilder: FormBuilder,
@@ -31,17 +32,20 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   login() {
     if(this.loginForm.valid) {
+      this.isLoading = true;
       let body: ILoginReq = {
         email: this.loginForm.get('email').value,
         password: this.loginForm.get('password').value,
       }
       this.sessionService.login(body).subscribe(
         (res: any) => {
+          this.isLoading = false;
           setTokenToLocalStorage(res.data.session);
           this.sessionService.isAuthenticated.next(true);
           this.router.navigate([ROUTERURL.LANDING]);
         },
         (err) => {
+          this.isLoading = false;
           console.log(err);
           this.notificationService.show({
             content: err.error.errorMessage,

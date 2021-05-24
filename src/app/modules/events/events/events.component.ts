@@ -39,18 +39,18 @@ export class EventsComponent implements OnInit, OnDestroy {
 
   init() {
     this.eventService.getEventTypes();
-    this.userService.currentUser.asObservable().subscribe(
+    this.userService.currentUser.subscribe(
     (res) => {
       if(res?.id) {
         this.eventService.state = res.address.state;
         this.eventService.getEvents(res.address.state);
       }
     });
-    this.eventService.eventsCount.asObservable().subscribe((res) => this.count = res);
+    this.eventService.eventsCount.subscribe((res) => this.count = res);
     this.eventService.getEventsObservable().subscribe((res) => {
       this.events = res;
     });
-    this.breakPointService.isMobileScreen.asObservable().subscribe(res => this.isSmallScreen = res);
+    this.breakPointService.isMobileScreen.subscribe(res => this.isSmallScreen = res);
   }
 
   ngOnInit(): void {
